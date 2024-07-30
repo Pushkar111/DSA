@@ -109,7 +109,7 @@ int main()
             break;
 
         case 3:
-            exit(0);
+            exit(0); 
             break;
         } // end of switch
         getch();
@@ -119,3 +119,43 @@ int main()
 
     return 0;
 }
+
+/*
+=> Algorithm for Linear(sequential) search
+-------------------------------------------
+    step-1 : define SIZE 5
+    step-2 : initialize int a[SIZE], index = -1, key
+    step-3 : input the sorted array and store the value in array a
+    step-4 : input the key for the search
+    step-5 : Linear search Loop
+             for(i = 0; i < size; i++)
+                if(a[i] == key) 
+                    index = i 
+                    break 
+    step-6 : After exiting loop check if index = -1 then key not found
+             else key is found
+    step-7 : End
+
+
+=> Algorithm for Binary(ordering) search
+-------------------------------------------
+    step-1 : define SIZE 5
+    step-2 : initialize int a[SIZE], index = -1, key,
+             min = 0, mid, max = SIZE - 1
+    step-3 : input the array and store the value in array a
+    step-4 : input the key for the search
+    step-5 : Binary search loop
+             while(min < max)
+                1. calculate mid = (min + max) / 2;
+                2. Compare the key with the middle element of the array (a[mid])
+                    - if(a[mid] == key)
+                        index = mid
+                        break
+                    - elseif(key > a[mid])
+                        min = mid + 1
+                    - else
+                        max = mid - 1
+    step-6 : After exiting loop check if index = -1 then key not found
+             else key is found
+    step-7 : End
+*/
