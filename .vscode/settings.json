@@ -3,6 +3,8 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "conio.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "iostream": "cpp",
+        "cctype": "c"
     }
 }

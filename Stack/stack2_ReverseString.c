@@ -91,7 +91,7 @@ int main()
     {
         push(str[i]);
     }
-    printf("\n str = %s", str);
+    printf("\nstr = %s", str);
 
     printf("\nREVERSE => \n");
     display();

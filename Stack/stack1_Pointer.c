@@ -3,46 +3,43 @@
 #define SIZE 5
 
 int stack[SIZE];
-int top = -1; // Empty stack
 
-// Time Complexity -> o(1)
-void push(int no)
+void push(int stack[], int *top, int no)
 {
-    if (top == SIZE - 1)
+    if (*top == SIZE - 1)
     {
         printf("\nStack OverFlow(Full Stack)");
     }
     else
     {
-        top++;
-        stack[top] = no; // not require to write 17 number line if → stack[++top] = no;
+        (*top)++;
+        stack[*top] = no;
     }
 }
 
-// Time Complexity -> o(1)
-void pop()
+void pop(int stack[], int *top)
 {
-    if (top == -1)
+    if (*top == -1)
     {
         printf("\nStack Underflow(Empty Stack)");
     }
     else
     {
-        printf("\npop Element : %d", stack[top]);
-        top--;
+        printf("\npop Element : %d", stack[*top]);
+        (*top)--;
     }
 }
 
-void display()
+void display(int stack[], int *top)
 {
     int i, count = 0;
-    if (top == -1)
+    if (*top == -1)
     {
         printf("\nStack underflow(Empty Stack)");
     }
     else
     {
-        for (i = top; i >= 0; i--)
+        for (i = *top; i >= 0; i--)
         {
             printf("\n%d", stack[i]);
             count++;
@@ -51,17 +48,18 @@ void display()
     printf("\nNo of Elements in Stack : %d", count);
 }
 
-void peep(int location)
+void peep(int location, int *top)
 {
     int index;
 
-    if (top == -1)
+    if (*top == -1)
     {
         printf("\nStack Underflow(Empty Stack)");
     }
     else
     {
-        index = top - location + 1;
+
+        index = *top - location + 1;
 
         if (index >= 0 && index <= SIZE)
         {
@@ -74,22 +72,22 @@ void peep(int location)
     }
 }
 
-void change(int location, int no)
+void change(int location, int *top, int no)
 {
     int index;
 
-    if (top == -1)
+    if (*top == -1)
     {
         printf("\nStack Underflow(Empty Stack)");
     }
     else
     {
-        index = top - location + 1;
+        index = *top - location + 1;
 
         if (index >= 0 && index <= SIZE)
         {
             stack[index] = no;
-            printf("\nIn Location %d => New Element : %d", location, stack[index]);
+            printf("\nIn Location %d => Change Element : %d", location, stack[index]);
         }
         else
         {
@@ -101,6 +99,9 @@ void change(int location, int no)
 int main()
 {
     int choice, no, location;
+
+    int *top;
+    *top = -1; // stack empty
     while (1)
     {
         printf("\n----------------------------------------------------------------");
@@ -110,7 +111,7 @@ int main()
         printf("\n2. For Pop");
         printf("\n3. For Display");
         printf("\n4. For peek");
-        printf("\n5. For change");
+        printf("\n5. For Change");
         printf("\n6. For Exit");
         printf("\n----------------------------------------------------------------");
 
@@ -123,29 +124,29 @@ int main()
         case 1:
             printf("\nEnter the No : ");
             scanf("%d", &no);
-            push(no);
+            push(stack, top, no);
             break;
 
         case 2:
-            pop();
+            pop(stack, top);
             break;
 
         case 3:
-            display();
+            display(stack, top);
             break;
 
         case 4:
             printf("\nEnter the Location : ");
             scanf("%d", &location);
-            peep(location);
+            peep(location, top);
             break;
 
         case 5:
             printf("\nEnter the Location : ");
             scanf("%d", &location);
-            printf("\nEnter the No u want to change : ");
+            printf("\nEnter element you want to change : ");
             scanf("%d", &no);
-            change(location, no);
+            change(location, top, no);
             break;
 
         case 6:
@@ -191,6 +192,7 @@ stack Example [practical life] :-
     5) gallery
     6) ctrl+z -> stack
 ----------------------------------------------------------------
+
 1) push() operation :- The process of putting a new data element
                       onto a stack is known as a Push Operation.
 
