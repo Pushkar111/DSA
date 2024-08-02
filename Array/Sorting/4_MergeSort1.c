@@ -38,9 +38,9 @@ void mergeSort(int a[], int b[], int c[])
     }
 }
 
-void dispData(int c[])
+void dispData(int c[], int SIZE)
 {
-    for (int i = 0; i < S3; i++)
+    for (int i = 0; i < SIZE; i++)
     {
         printf("%d\t", c[i]);
     }
@@ -48,14 +48,13 @@ void dispData(int c[])
 
 int main()
 {
-    int a[] = {10, 20, 30, 40, 50};
-    int b[] = {1, 2, 3, 4, 5};
-    int c[S3];
+    // int a[] = {10, 20, 30, 40, 50};
+    // int b[] = {1, 2, 3, 4, 5};
+    // int c[S3];
 
-/*
-=> Proper merge sort
+    // =>  merge sort-1
 
-    int a[] = {1, 2, 3, 4, 5, 10, 20, 30, 40, 50};
+    int arr[] = {10, 20, 30, 40, 50, 1, 2, 3, 4, 5};
     int c[S3];
 
     int min = 0;
@@ -63,41 +62,36 @@ int main()
     int mid;
     mid = (min + max) / 2;
 
-    int a1[mid];
-    int a2[S3 - mid];
+    int a[mid];
+    int b[S3 - mid];
 
     for (int i = 0; i < mid; i++)
     {
-        a1[i] = a[i];
+        a[i] = arr[i];
     }
 
     for (int i = mid; i < S3; i++)
     {
-        a2[i - mid] = a[i];
+        b[i - mid] = arr[i];
     }
 
     printf("\nFirst half : ");
-    for (int i = 0; i < S1; i++)
-    {
-        printf("%d\t", a1[i]);
-    }
+    printf("\n--------------------------------------------------------------------------------------\n");
+    dispData(a, S1);
 
     printf("\nSecond half : ");
-    for (int i = 0; i < S2; i++)
-    {
-        printf("%d\t", a2[i]);
-    }
-
-    mergeSort(a1, a2, c);
-    printf("\nThe sorted Array is : \n");
-    printf("------------------------------------------\n");
-    dispData(c);
-*/
+    printf("\n--------------------------------------------------------------------------------------\n");
+    dispData(b, S2);
 
     mergeSort(a, b, c);
-    printf("\nThe sorted Array is : \n");
-    printf("------------------------------------------\n");
-    dispData(c);
+    printf("\nThe sorted Array is : ");
+    printf("\n--------------------------------------------------------------------------------------\n");
+    dispData(c, S3);
+
+    // mergeSort(a, b, c);
+    // printf("\nThe sorted Array is : \n");
+    // printf("--------------------------------------------------------------------------------------\n");
+    // dispData(c, S3);
 
     return 0;
 }
