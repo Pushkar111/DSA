@@ -31,7 +31,7 @@ int main()
     }
 
     printf("\nFirst %d prime Without Scanf Function",SIZE);
-    printf("\n----------------------------------------\n");
+    printf("\n--------------------------------------------------------------------------------\n");
     for (i = 0; i < SIZE; i++)
     {
         printf("%d\t", a[i]);

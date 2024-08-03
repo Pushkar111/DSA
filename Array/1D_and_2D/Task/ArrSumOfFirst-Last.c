@@ -1,4 +1,7 @@
-// Task = Sum of first and last element entered array
+// Task =>   if user enter only one digit element then print
+//           multiple of 2 of that element and 
+//           if user enter more than one digit element then
+//           Sum of first and last element entered array
 #include <stdio.h>
 #include <conio.h>
 #define SIZE 5
