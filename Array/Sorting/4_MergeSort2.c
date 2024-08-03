@@ -1,8 +1,8 @@
 // Time Complexity: T(n) = n logn
 
 #include <stdio.h>
-#define SIZE 5
 
+//                      0           5       9
 void merge(int arr[], int min, int mid, int max)
 {
     int SIZE1 = mid - min + 1;
@@ -57,7 +57,7 @@ void mergeSort(int arr[], int min, int max)
     }
 }
 
-void dispData(int arr[])
+void dispData(int arr[], int SIZE)
 {
     for (int i = 0; i < SIZE; i++)
     {
@@ -67,12 +67,18 @@ void dispData(int arr[])
 
 int main()
 {
-    int arr[] = {5, 4, 3, 2, 1};
+    int arr[] = {11, 122, 31, 4, 115, 600, 700, 85, 91, 100};
+    int SIZE = sizeof(arr) / sizeof(int);
     int min = 0, max = SIZE - 1;
 
-    mergeSort(arr, min, max);
+    printf("Unsorted array : \n");
+    printf("-------------------------------------------------------------------------------\n");
+    dispData(arr, SIZE);
 
-    dispData(arr);
+    mergeSort(arr, min, max);
+    printf("\nsorted array : \n");
+    printf("-------------------------------------------------------------------------------\n");
+    dispData(arr, SIZE);
 
     return 0;
 }

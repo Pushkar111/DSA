@@ -6,22 +6,10 @@ Selection Sort:
 */
 #include <stdio.h>
 #include <conio.h>
-#define SIZE 7
 
 // 55 87 65 43 45 67 89
 
-int a[SIZE];
-void scanData()
-{
-    int i;
-    for (i = 0; i < SIZE; i++)
-    {
-        printf("\nEnter the value of a[%d] : ", i);
-        scanf("%d", &a[i]);
-    }
-}
-
-void dispData()
+void dispData(int a[], int SIZE)
 {
     int i;
     for (i = 0; i < SIZE; i++)
@@ -30,7 +18,7 @@ void dispData()
     }
 }
 
-void selectionSort()
+void selectionSort(int a[], int SIZE)
 {
     int i, j, min, temp;
 
@@ -48,23 +36,23 @@ void selectionSort()
         a[i] = a[min];
         a[min] = temp;
         printf("\n\nPass: %d => ", i + 1);
-        dispData(); // print array of each pass
+        dispData(a, SIZE); // print array of each pass
     }
     printf("\n\nSorted Array\n");
     printf("------------------------------------------------------------------------\n");
-    dispData();
+    dispData(a, SIZE);
 }
 
 int main()
 {
-    scanData();
+    int a[] = {55, 87, 65, 43, 45, 67, 89};
+    int SIZE = sizeof(a) / sizeof(int);
 
     printf("\nUnSorted Array\n");
     printf("------------------------------------------------------------------------\n");
+    dispData(a, SIZE);
 
-    dispData();
-    
-    selectionSort(); 
+    selectionSort(a, SIZE);
 
     getch();
     return 0;

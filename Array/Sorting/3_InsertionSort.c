@@ -7,21 +7,8 @@ insertion sort
 */
 #include <stdio.h>
 #include <conio.h>
-#define SIZE 7
 
-// 55 87 65 43 45 67 89
-int a[SIZE];
-
-void scanData()
-{
-    for (int i = 0; i < SIZE; i++)
-    {
-        printf("\nEnter the value of a[%d] : ", i);
-        scanf("%d", &a[i]);
-    }
-}
-
-void dispData()
+void dispData(int a[], int SIZE)
 {
     for (int i = 0; i < SIZE; i++)
     {
@@ -29,7 +16,7 @@ void dispData()
     }
 }
 
-void insertionSort()
+void insertionSort(int a[], int SIZE)
 {
     int i, j, temp; // temp = current
 
@@ -49,25 +36,25 @@ void insertionSort()
         }
         a[j + 1] = temp;
         printf("\n\nPass: %d => ", i);
-        dispData(); // for print each pass
+        dispData(a, SIZE); // for print each pass
     }
 
     printf("\n\nSorted Array\n");
     printf("------------------------------------------------------------------------\n");
-    dispData();
+    dispData(a, SIZE);
 }
 
 int main()
 {
-
-    scanData();
+    int a[] = {55, 87, 65, 43, 45, 67, 89};
+    int SIZE = sizeof(a) / sizeof(int);
 
     printf("\nUnSorted Array\n");
     printf("------------------------------------------------------------------------\n");
 
-    dispData();
+    dispData(a, SIZE);
 
-    insertionSort();
+    insertionSort(a, SIZE);
 
     getch();
     return 0;
