@@ -3,12 +3,67 @@
 #include <stdlib.h>
 #define SIZE 5
 
+void scanData(int a[])
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        printf("Enter the value of a[%d]: ", i);
+        scanf("%d", &a[i]);
+    }
+}
+
+void dispData(int a[])
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+}
+
+int LinearSearch(int a[], int key)
+{
+    int index = -1;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (a[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int BinarySearch(int a[], int key)
+{
+    int index = -1;
+    int min = 0, mid, max = SIZE - 1;
+
+    while (min <= max)
+    {
+        mid = (min + max) / 2;
+        if (a[mid] == key)
+        {
+            index = mid;
+            break;
+        }
+        else if (key > a[mid])
+        {
+            min = mid + 1;
+        }
+        else
+        {
+            max = mid - 1;
+        }
+    }
+}
+
 int main()
 {
     int choice;
     int a[SIZE], index = -1;
     int key, i;
-    int min = 0, mid, max = SIZE - 1;
 
     while (1)
     {
@@ -27,30 +82,15 @@ int main()
         switch (choice)
         {
         case 1:
-            for (i = 0; i < SIZE; i++)
-            {
-                printf("Enter the value of a[%d]: ", i);
-                scanf("%d", &a[i]);
-            }
-
+            scanData(a);
             printf("\nArray is : \n");
             printf("------------------------------------------\n");
-            for (i = 0; i < SIZE; i++)
-            {
-                printf("%d\t", a[i]);
-            }
+            dispData(a);
 
             printf("\nEnter the key for Search : ");
             scanf("%d", &key);
 
-            for (i = 0; i < SIZE; i++)
-            {
-                if (a[i] == key)
-                {
-                    index = i;
-                    break;
-                }
-            }
+            index = LinearSearch(a, key);
 
             if (index == -1)
             {
@@ -64,39 +104,16 @@ int main()
 
         case 2:
             printf("\nPlz Enter the Sorted Array\n");
-            for (i = 0; i < SIZE; i++)
-            {
-                printf("Enter the value of a[%d] : ", i);
-                scanf("%d", &a[i]);
-            }
+            scanData(a);
 
             printf("\nArray is : \n");
             printf("------------------------------------------\n");
-            for (i = 0; i < SIZE; i++)
-            {
-                printf("%d\t", a[i]);
-            }
+            dispData(a);
 
             printf("\nEnter the key for Search : ");
             scanf("%d", &key);
 
-            while (min <= max)
-            {
-                mid = (min + max) / 2;
-                if (a[mid] == key)
-                {
-                    index = mid;
-                    break;
-                }
-                else if (key > a[mid])
-                {
-                    min = mid + 1;
-                }
-                else
-                {
-                    max = mid - 1;
-                }
-            }
+            index = BinarySearch(a, key);
 
             if (index == -1)
             {
@@ -109,7 +126,7 @@ int main()
             break;
 
         case 3:
-            exit(0); 
+            exit(0);
             break;
         } // end of switch
         getch();
@@ -129,9 +146,9 @@ int main()
     step-4 : input the key for the search
     step-5 : Linear search Loop
              for(i = 0; i < size; i++)
-                if(a[i] == key) 
-                    index = i 
-                    break 
+                if(a[i] == key)
+                    index = i
+                    break
     step-6 : After exiting loop check if index = -1 then key not found
              else key is found
     step-7 : End
