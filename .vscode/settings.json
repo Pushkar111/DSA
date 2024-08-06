@@ -6,6 +6,7 @@
         "stdio.h": "c",
         "iostream": "cpp",
         "cctype": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "DP_STRUC.C": "cpp"
     }
 }
