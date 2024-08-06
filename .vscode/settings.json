@@ -5,6 +5,7 @@
         "conio.h": "c",
         "stdio.h": "c",
         "iostream": "cpp",
-        "cctype": "c"
+        "cctype": "c",
+        "string.h": "c"
     }
 }

@@ -1,0 +1,95 @@
+==========================================
+=> Precedence
+==========================================
+1) {}, [], ()
+2) ^ 
+3) /, *
+4) +, -
+==========================================
+
+
+-------------------------------------------------            
+|                Stack Notations                |
+-------------------------------------------------
+-> Three Stack Notations
+    1. Infix Notations
+    2. Prefix Notations (Polish Notations)
+    3. Postfix Notations (Suffix Notations)
+
+1. Infix Notations :-
+---------------------
+-> In Infix Notations Operator written between the  the Operands  
+-> Sign : <Operand> <Operator> <Operand>
+ex.. 
+        A + B
+            -> Where + → Operator 
+                   A,B → Operands 
+ex.. 
+                    4 * 2 + 3
+                        |
+                -----------------
+                |               |
+            (4 * 2) + 3     4 * (2 + 3)
+
+
+
+2. Prefix Notations :-
+----------------------
+-> In Prefix Notations Operator written Before Operands
+-> Sign : <Operator> <Operand> <Operand>
+-> It is also known as Polish Notations
+ex.. 
+        +AB
+            -> Where + → Operator 
+                   A,B → Operands 
+ex.. 
+                    (4 * 2) + 3 --> +*423
+-> Step-by-step Conversion:
+    1) Identify the innermost expression: 4×2
+    2) Convert 4×2 to Prefix: " *42 "
+    3) The remaining expression becomes: " *(42)+3 "
+    4) Convert the whole expression to Prefix by moving the + Before its operands: " +*423 "
+                    
+                    5 - (6 / 3) --> -5/63
+-> Step-by-step Conversion:
+    1) Identify the innermost expression: 6/3
+    2) Convert 6/3 to Prefix: " /63 "
+    3) The remaining expression becomes: " 5 - (/63) "
+    4) Convert the whole expression to Prefix by moving the - after its operands: " -5/63 "
+                    
+
+
+3. Postfix Notations :-
+-----------------------
+-> In Postfix Notations Operator written After Operands
+-> Sign : <Operand> <Operand> <Operator> 
+-> It is also known as Suffix Notations
+-> It is also known as Reverse Polish Notations
+ex.. 
+        AB+ 
+            -> Where + → Operator 
+                   A,B → Operands 
+ex.. 
+                    
+                    (4 * 2) + 3 --> 42*3+
+-> Step-by-step Conversion:
+    1) Identify the innermost expression: 4×2
+    2) Convert 4×2 to postfix: " 42* "
+    3) The remaining expression becomes: " (42*)+3 "
+    4) Convert the whole expression to postfix by moving the + after its operands: " 42*3+ "
+                    
+                    5 - (6 / 3) --> 563/-
+-> Step-by-step Conversion:
+    1) Identify the innermost expression: 6/3
+    2) Convert 6/3 to postfix: " 63/ "
+    3) The remaining expression becomes: " 5 - (63/) "
+    4) Convert the whole expression to postfix by moving the - after its operands: " 563/- "
+                    
+ 
+
+
+
+------------------------------------------------------------------------------------------------
+Que | Convert the Infix to Prefix and Postfix for (A+B) * C/D + E^F/G 
+------------------------------------------------------------------------------------------------
+Prefix => 
