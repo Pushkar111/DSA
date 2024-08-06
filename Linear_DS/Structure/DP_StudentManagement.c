@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <conio.h>
+#include <stdlib.h>
 #define SIZE 2
 
 void Create();
@@ -42,9 +42,8 @@ void Create()
 		s[i].comp = temp;
 
 		CalculateGrade(i);
-
-	} // end of for
-} // end of Create
+	}
+}
 
 void Display()
 {
@@ -59,8 +58,7 @@ void Display()
 			printf("\n%d\t%s\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%c", s[i].sid, s[i].name, s[i].fees, s[i].maths, s[i].eng, s[i].comp, s[i].total, s[i].per, s[i].grade);
 		}
 	}
-
-} // end of Display
+}
 
 void DisplayParticular(int index)
 {
@@ -69,9 +67,9 @@ void DisplayParticular(int index)
 	if (s[index].flag != -1)
 	{
 		printf("\nSID\tNAME\tFEES\tMATHS\tENG\tCOMP\tGRADE");
-		printf("\n%d\t%s\t%.2f\t%.2f\t%.2f\t%.2f\t%c", s[i].sid, s[i].name, s[i].fees, s[i].maths, s[i].eng, s[i].comp, s[i].grade);
-	} // end of if
-} // end of DisplayParticular
+		printf("\n%d\t%s\t%.2f\t%.2f\t%.2f\t%.2f\t%c", s[index].sid, s[index].name, s[index].fees, s[index].maths, s[index].eng, s[index].comp, s[index].grade);
+	}
+}
 
 int Search(int id)
 {
@@ -84,12 +82,9 @@ int Search(int id)
 		{
 			return i;
 		}
-
-	} // end of for
-
+	}
 	return -1;
-
-} // end of Search
+}
 
 void CalculateGrade(int i)
 {
@@ -109,7 +104,7 @@ void CalculateGrade(int i)
 	{
 		s[i].grade = 'C';
 	}
-} // end of CalculateGrade
+}
 
 void Update(int id)
 {
@@ -171,9 +166,9 @@ void Update(int id)
 
 		case 5:
 			exit(0);
-		} // end of switch
-	} // end of else
-} // end of Update
+		}
+	}
+}
 
 void del(int id)
 {
@@ -190,23 +185,23 @@ void del(int id)
 	{
 		s[index].flag = -1;
 	}
-} // end of del
+}
 
-void main()
+int main()
 {
 	int i, choice, id, index;
 	while (1)
 	{
-		printf("\n--------------------------------------------");
-		printf("\n			Student Management System");
-		printf("\n--------------------------------------------");
+		printf("\n============================================================");
+		printf("\n		Student Management System");
+		printf("\n============================================================");
 		printf("\n1.Create");
 		printf("\n2.Display");
 		printf("\n3.Search");
 		printf("\n4.Update");
 		printf("\n5.Delete");
 		printf("\n6.Exit");
-		printf("\n--------------------------------------------");
+		printf("\n============================================================");
 
 		printf("\nEnter the Choice : ");
 		scanf("%d", &choice);
@@ -242,7 +237,6 @@ void main()
 			scanf("%d", &id);
 
 			Update(id);
-
 			break;
 
 		case 5:
@@ -250,12 +244,11 @@ void main()
 			scanf("%d", &id);
 
 			del(id);
-
 			break;
 
 		case 6:
 			exit(0);
-		} // end of switch
-		getch();
-	} // end of while
-} // end of main
+		}
+	}
+	return 0;
+}
