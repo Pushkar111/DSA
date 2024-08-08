@@ -22,7 +22,7 @@ void dispData(int a[], int SIZE)
 
 void bubbleSort(int a[], int SIZE)
 {
-    int i, j, temp;
+    int i, j, temp, ex = 0;
     for (i = 0; i < SIZE; i++)
     {
         for (j = 0; j < SIZE - 1; j++)
@@ -32,6 +32,7 @@ void bubbleSort(int a[], int SIZE)
                 temp = a[j];
                 a[j] = a[j + 1];
                 a[j + 1] = temp;
+                ex++;
             }
         }
         printf("\n\nPass: %d => ", i + 1);
@@ -40,6 +41,16 @@ void bubbleSort(int a[], int SIZE)
     printf("\n\nSorted Array\n");
     printf("------------------------------------------------------------------------\n");
     dispData(a, SIZE);
+
+    if (ex == 0)
+    {
+        printf("\nArray is already sorted\n");
+    }
+    else
+    {
+        printf("\nNumber of exchange: %d\n", ex);
+    }
+    
 }
 
 int main()
