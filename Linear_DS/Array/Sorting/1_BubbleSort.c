@@ -1,5 +1,5 @@
 /*
-Bubble Sort
+Bubble Sort(comparison sort)
     Best Case: O(n) [(when the array is already sorted)]
     Average Case: O(n^2)
     Worst Case: O(n^2)
