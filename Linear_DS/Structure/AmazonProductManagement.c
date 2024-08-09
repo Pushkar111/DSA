@@ -1,4 +1,3 @@
-// <<<<<<<<<<<<<<  ✨ Codeium Command 🌟 >>>>>>>>>>>>>>>>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -256,4 +255,3 @@ int main()
     }
     return 0;
 }
-// <<<<<<<  56e0fa56-593f-41a2-8354-ecc0433c325a  >>>>>>>
