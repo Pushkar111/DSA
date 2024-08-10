@@ -63,6 +63,7 @@ void display(int queue[])
         printf("\nQueue : \n");
         if (front <= rear)
         {
+            // SimpleQueue
             for (int i = front; i <= rear; i++)
             {
                 printf("%d => %d\n", i, queue[i]);
@@ -70,6 +71,7 @@ void display(int queue[])
         }
         else
         {
+            // CircularQueue
             for (int i = front; i <= SIZE - 1; i++)
             {
                 printf("%d => %d\n", i, queue[i]);
