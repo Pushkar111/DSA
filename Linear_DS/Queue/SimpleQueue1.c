@@ -123,17 +123,26 @@ int main()
             scanf("%d", &no);
             enQueue(queue, no);
             break;
+
         case 2:
             deQueue(queue);
             break;
+
         case 3:
             display(queue);
             break;
+
         case 4:
             countEmptySpace(queue);
             break;
+
         case 5:
             exit(0);
+            break;
+
+        default:
+        printf("\nInvalid Choice");
+        break;
         }
     }
 
