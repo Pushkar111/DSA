@@ -50,7 +50,7 @@ void countEmptySpace(int queue[])
         printf("\nQueue is Underflow(empty)");
         count = SIZE; // All spaces are empty
     }
-    else if ((rear + 1) % SIZE == front)
+    else if (rear == front)
     {
         printf("\nQueue is Overflow(full)");
         count = 0;
