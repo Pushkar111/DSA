@@ -16,8 +16,11 @@ void enQueue(int queue[], int no)
         {
             front = 0;
         }
-        rear++;
-        queue[rear] = no;
+        else
+        {
+            rear++;
+            queue[rear] = no;
+        }
     }
 }
 
@@ -32,11 +35,13 @@ void deQueue(int queue[])
         // last element of queue
         if (front == rear)
         {
+            printf("\n%d is deleted", queue[front]);
             front = -1;
             rear = -1;
         }
         else
         {
+            printf("\n%d is deleted", queue[front]);
             front++;
         }
     }
@@ -141,8 +146,8 @@ int main()
             break;
 
         default:
-        printf("\nInvalid Choice");
-        break;
+            printf("\nInvalid Choice");
+            break;
         }
     }
 
