@@ -7,6 +7,7 @@
         "iostream": "cpp",
         "cctype": "c",
         "string.h": "c",
-        "DP_STRUC.C": "cpp"
+        "DP_STRUC.C": "cpp",
+        "system_error": "c"
     }
 }
