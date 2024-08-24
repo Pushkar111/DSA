@@ -1,3 +1,0 @@
-C:/Users/ABHISHEK NANDAN/Desktop/untitled47/cmake-build-debug/CMakeFiles/untitled47.dir
-C:/Users/ABHISHEK NANDAN/Desktop/untitled47/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ABHISHEK NANDAN/Desktop/untitled47/cmake-build-debug/CMakeFiles/rebuild_cache.dir
