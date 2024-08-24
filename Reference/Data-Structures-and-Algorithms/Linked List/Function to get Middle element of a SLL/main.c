@@ -1,13 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // Link list node
 struct node
 {
     int data;
-    struct node* next;
+    struct node *next;
 };
-
 
 // Function to get the middle of the linked list
 
