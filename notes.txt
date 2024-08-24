@@ -1,0 +1,438 @@
+1) time complexity 
+2) space complexity
+
+
+x=10
+
+int k=10
+int k1=10
+int k2=10
+
+20 byte * 100000 -> 20,00,000 byte 
+    -> 2000 MB
+    -> 2 GB 
+
+                    ----------------------------------------------------------------------
+                    |                            Types of DS                             |
+                    ----------------------------------------------------------------------
+
+                                            Data Structure
+                                                |
+            ---------------------------------------------------------------------------
+            |                                                                         |
+        primitive                                                                  Non-primitive 
+        Data Structure                                                             Data Structure       
+            |                                                                         |
+    -----------------                                                 -----------------------------------            
+    |       |       |                                                 |                                 |
+Integer  Float    Character                                         Linear                           Non-Linear
+                                                                Data Structure                      Data Structure
+                                                                      |                             → Tree
+                                                                -------------                       → Graph
+                                                                |           | 
+                                                            Static       Dynamic
+                                                            → Array      → Stack
+                                                                         → Queue
+                                                                         → LinkedList
+
+        DS                                                               
+Linear 			NonLinear
+Array 			Tree
+Stack 			Graph 
+Queue 
+LinkedList
+ 
+	Sort :-binary, selection, insertion, merge, quick, heap  
+	
+    Search:-linear,binary 
+
+
+
+
+
+array : sum 
+
+SIZE = 50 -> 25 
+100 -> 50 
+
+n/2 
+ 
+ O(n/2)
+
+
+ O(1) : constant 
+
+
+
+
+
+search 
+
+1...50 
+
+25 
+
+
+
+login facebook -> 
+    
+------------------------------------------------------------------------------    
+
+array -> n number items 
+		 static 
+		 
+int a[5]; //4*5=>20
+
+DMA 
+
+10 -> 
+3->2 
+
+
+0:2000 2001 2002 2003
+1:2004
+2:2008
+3:2012
+4:2016 
+----------------------------------------------------
+
+function 
+
+void add(){
+	scanf -> console
+	printf(10); 
+}
+
+add(); // call 
+
+
+int add(){
+
+	return 10; 
+}
+
+ans = add(); 
+
+
+int add(int x,int y){
+	return x+y; 
+}
+
+add(10,20);
+-----------------------------------------------------
+
+
+STACK -> LiFo -> Last In First Out 
+
+ticket -> 
+
+ctrl+z -> stack 
+
+
+  
+display 
+40
+30
+30
+10
+
+=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-
+|											24-ds-9pm											|
+=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-
+
+C , C++ , Java , Python 
+
+DS 
+
+
+10
+30
+------
+
+40
+
+5 line code->5 instruction -> 2 second -> 5MB 
+
+1000 users -> 
+
+5000 instructions -> 5MB*1000 : 5000MB 
+
+
+DS
+    1) time complexity 
+         time taken : 
+                    total instructions executed 
+    2) space complexity :
+                    total memory 
+
+
+
+int main(){
+
+    for(i=1;i<=5;i++){
+        printf("Hi ");
+        //
+        //
+    }
+
+}
+
+
+ALGO :-  
+
+
+                                        DS 
+            Linear DS                                               Non Linear DS 
+    Array                                                               Tree
+    Stack                                                               Graph 
+    Queue 
+    LinkedList                   
+
+
+    searching 
+        1) linear 
+        2) binary
+    sorting
+        1) bubble  
+        2) selection
+        3) insertion 
+        4) merge sort
+        5) quick sort 
+        6) heap sort 
+
+------------------------------------------------------------------------------------
+
+
+time complexity***
+space complexity 
+
+10 second -> 5 second 
+
+
+
+resources -> 
+
+---------------------------------------------------------------------------
+
+8 numbers-> 
+10  15  2   20  25  63  22  14
+
+
+10 numbers-> 
+10  15  2   20  25  63  22  14  50 70 
+start 
+
+search : 10 :  1 
+search : 2  :  3 
+search : 25 :  5 
+search : 100 : 10  {n time} {size}
+
+
+
+Notation :- Symbol :- 
+
+
+
+1) worst case***  : Big O notation 
+2) best case      : Big Omega notation
+3) avg case       : Big Theta notation
+
+
+------------------------------------------------------------------
+array 
+
+function 
+
+struct 
+-------------------------------------------------------------------
+
+array -> 
+
+    what is an array  ? 
+        array is collection of same type of data 
+        under the one data name we can store n numbers of items 
+        continueous manner 
+        you can access elements of the array using index 
+        index will start from 0 and ends with SIZE-1 
+
+    int a; //i can store a single value 
+    a = 10; 
+
+
+
+    a = 100; //10 over write
+    printf(" %d",a); //100           
+
+
+    int a[10];
+
+    //a[0]  a[1] a[2] ..... a[9]
+
+    //0 1 2 3 4 5 ------ 9 ==> index 
+    //index is alos known as --> subscript 
+
+    [] => 1 dimension -> single line-> 
+    [][] => 2 dimension -> matrix 
+    [][][] => multidimension -> 3D 
+
+
+------------------------------------------------------------------------------------
+
+
+
+function -> 
+
+
+
+        max function find out the max value from a and b 
+        a and b is the parameter of the max function. 
+        max function will print who is max from a and b. 
+
+
+        
+
+--------------------------------------------------------------------------
+
+
+stack 
+    LiFo -> Last In First Out 
+
+
+    1)whatsapp -> chat -> msg 
+
+    T 11 -> hi 
+
+    D 11.15 -> hi 
+
+    D T 
+
+    2) email 
+
+    3) call-history   
+
+    4) stack of plate 
+
+    5) gallery 
+
+--------------------------------------------------------------------------------
+
+
+add:10
+add:20
+add:30
+
+display
+30
+20
+10
+
+add:40
+40
+30
+20
+10
+
+
+array*** 
+
+--------------
+_push()_____ function is used to add data in stack?
+
+_pop()_____ function is used to remove data 
+from stack? 
+
+
+___top___ pointer/indicator we will use to manage stack?
+   
+
+______ condition is used to identify that 
+stack is full? 
+top == size-1 
+
+
+
+_top == -1______ condition is used to identify that 
+stack is EMPTY?
+
+
+in which operation we will do top++? 
+PUSH(10)
+
+----------------------------------------------
+StackCharRev.c 
+
+take a string from user and reverse it. 
+
+
+royal 
+
+PUSH('r')
+PUSH('o')
+PUSH('y')
+PUSH('a')
+PUSH('l')
+
+display() -> layor 
+
+---------------------------------------------------
+1)Linear Search 
+2)binary Search 
+
+search : Linear 
+
+array : [10,20,30,40,50,60,70,80,90,100]   
+
+SIZE : 10 
+
+
+enter search num: 
+11 
+Not Found 
+
+
+enter search num: 
+70 
+Found 
+
+time complexity ->10 array -> 10 time
+                  15 array -> 15 time 
+                  25 array -> 25 time 
+                    
+                    N : N 
+O(n) 
+----------------------------------------------------------------
+binary search 
+
+array : [10,20,30,40,50,60,70,80,90,100]
+
+array must be sorted : 
+----------------------------------------------------------------
+
+bubble sort 
+selection sort 
+insertion sort 
+merge sort 
+quick sort
+heap sort  
+
+---------------------------------------------------------------
+linear search : O(n) 
+binary search : log(n)
+
+stack : PUSH top++  O(1) constant 
+        POP  top--  O(1)
+
+-----------------------------------------------------------------
+
+SORTING :- 
+
+array : 55 87 65 43 45 67 89 76 54 33 45 67
+    sorting
+ASC smaller to larger 
+DSC larger to smaller 
+
+bubble sort -> 
+
+
+
+
