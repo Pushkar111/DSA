@@ -8,6 +8,11 @@
         "cctype": "c",
         "string.h": "c",
         "DP_STRUC.C": "cpp",
-        "system_error": "c"
+        "system_error": "c",
+        "cstdlib": "c",
+        "algorithm": "c",
+        "functional": "c",
+        "array": "c",
+        "string": "c"
     }
 }
