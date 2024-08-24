@@ -1,0 +1,3 @@
+C:/Users/ABHISHEK NANDAN/Desktop/To check these programs/Infix notation to Postfix notation using Stack/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ABHISHEK NANDAN/Desktop/To check these programs/Infix notation to Postfix notation using Stack/cmake-build-debug/CMakeFiles/untitled7.dir
+C:/Users/ABHISHEK NANDAN/Desktop/To check these programs/Infix notation to Postfix notation using Stack/cmake-build-debug/CMakeFiles/edit_cache.dir
