@@ -401,7 +401,11 @@ int main()
             printf("\nBefore InsertAfterValue :");
             display();
 
-            head = insertAfterValue(source, data);
+            struct node *newHead = insertAfterValue(source, data);
+            if (newHead != NULL)
+            {
+                head = newHead;
+            }
 
             printf("\nAfter InsertAfterValue :");
             display();
