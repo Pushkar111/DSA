@@ -5,9 +5,12 @@ struct node
 {
     int data;
     struct node *next;
-} *last = NULL;
+};
 
-void AddNode(struct node *head, int no)
+struct node *head = NULL;
+struct node *last = NULL;
+
+struct node *AddNode(int no)
 {
     // Allocate memory in the heap
     struct node *temp = (struct node *)malloc(sizeof(struct node));
@@ -27,23 +30,25 @@ void AddNode(struct node *head, int no)
         last->next = temp;
         last = temp;
     }
+
+    return head;
 }
 
 int main()
 {
     struct node *head = NULL;
-    
-    AddNode(head, 10);
-    AddNode(head, 20);
-    AddNode(head, 30);
-    AddNode(head, 40);
-    AddNode(head, 50);
 
-    printf("%d", head->data);
-    printf("%d", head->next->data);
-    printf("%d", head->next->next->data);
-    printf("%d", head->next->next->next->data);
-    printf("%d", last->data);
+    head = AddNode(10);
+    head = AddNode(20);
+    head = AddNode(30);
+    head = AddNode(40);
+    head = AddNode(50);
+
+    printf("%d -> ", head->data);
+    printf("%d -> ", head->next->data);
+    printf("%d -> ", head->next->next->data);
+    printf("%d -> ", head->next->next->next->data);
+    printf("%d -> NULL", last->data);
 
     return 0;
 }
