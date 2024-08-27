@@ -433,6 +433,351 @@ DSC larger to smaller
 
 bubble sort -> 
 
+-----------------------------------------------------------------
+
+SORTING :- 
+
+array : 55 87 65 43 45 67 89 76 54 33 45 67
+    sorting
+ASC smaller to larger 
+DSC larger to smaller 
+
+bubble sort -> 
+
+
+
+
+selection sort -> 
+
+array : 55 87 65 43 45 67 89  
+        i  j 
+        min 
+            min 
+43  45  55  65  87  67  89 
+            i   j
+
+
+
+selection 
+bubble 
+
+insertion sort -> 
+
+
+array : 55 87 65 43 45 67 89  
+    
+
+direction -> left to right 
+             right to left -> current element -> small -> stop 
+                                              -> big -> +1 index shift -> overwrite 
+
+
+55 87 65 43 45 67 89 
+
+
+
+ current = 89
+
+
+43 45 55 65 67 87 89
+
+
+----------------------------------
+85 47 62 14 3 25  19  9 55 
+-----------------------------------
+
+
+current=47 
+47 85 62 14 3 25  19  9 55 
+    
+
+current=62 
+47 62 85 14 3 25  19  9 55 
+      j  i
+
+current=14 
+14 47 62 85 3 25  19  9 55 
+
+current=3 
+3 14 47 62 85 25  19  9 55 
+
+current=25
+3 14 25 47 62 85  19  9 55 
+
+
+
+current=19************
+3 14 25 47 62 85  19  9 55 
+
+
+
+-----------------------------------------------------
+
+
+j
+   43 55 65 87 45 67 89 
+         i 
+   current=43 
+   j=i-1 
+
+    if a[j] > current:
+        a[j+1] = a[j]
+
+    else 
+        break 
+
+    a[j+1] = current    
+
+i++ 
+
+-----------------------------------------------
+
+recursion => 
+
+
+
+    print(5) 
+    5 4 3 2 1 
+
+    print(3)
+    3 2 1 
+
+    print(5)
+    1 2 3 4 5 
+
+
+=-----------------------------------------------------------------------------
+
+two num addition -> 2 variable 
+
+10 number addition -> array 
+    collection n numbers of item with same type of data 
+
+
+Amazon-> 
+    productName ->char[]
+    price  -> int 
+    productId -> int 
+    qty -> int 
+    category -> char[] 
+    structure => collection of n numbres of items with different type of data 
+
+
+struct product{
+    char productName[20];
+    char category[20];
+    int productId;
+    int qty;
+    int price; 
+};
+
+struct product p1;  
+
+
+    0. Exit 
+    1. Add Product 
+    2. List All Products 
+    3. Search Product By Category {linear search} 
+    4. Search Product By Id       {binary searc }
+    
+    MAX 10 Products 
+
+    add product 
+    how many products you want to enter 
+    3
+
+
+
+---------------------------------------------------------------------------------------
+array -> random -> index
+
+stack -> LiFo -> Last in First Out 
+        1) gallery
+        2) whatsapp msg 
+        3) history 
+
+Queue -> FiFo -> First In First Out 
+        1) printer print 
+        2) checkout 
+
+        Type :
+            1) simple queue 
+            2) circular queue 
+            
+
+
+0   1   2   3   4   
+        30  40  50
+        f       r
+
+empty -> 0 
+
+empty -> 2 
+----------------------------------------------------------------------------
+
+
+DMA -> dynamic memory allocation
+
+
+int a; //4 byte 
+
+int x[5]; // array -> 20 byte 
+
+
+
+int main(){
+
+    int x; //4 byte 
+    int num[5]; // 20 byte 
+
+
+
+    //4 byte -> not required 
+    //nun -> X 
+
+
+
+
+
+    //
+    return 0; 
+}//finish 
+
+
+
+
+
+int main(){
+
+    int num[5]; // 20 byte -> 5 elements 
+
+    7 elements ? -> overflow  
+
+}
+
+
+
+int main(){
+
+    int num[5]; // 20 byte -> 5 elements 
+
+    2 elements ! --> 3 -> no 
+ 
+}
+
+SMA -> declare -> memory allocated -> 
+    SMA -> release -> scope -> function(){}
+    SMA -> fix size -> grow , shrink
+
+
+DMA -> 
+
+--------------------------------------------------------------------------------------
+
+memory allocation ->
+                    calloc() 
+                    malloc() 
+
+memory release  -> free()
+
+resize -> realloc()
+
+header? 
+        stdlib.h 
+---------------------------------------------------------------------------------        
+
+calloc -> same size block multiple qty 
+malloc -> block  
+
+int a[5]; // calloc 
+
+
+int a; // malloc 
+
+***********
+
+malloc -> heap -> virtual address -> faster 
+calloc -> page -> physical address 
+
+
+
+m:memory allocation
+c: contiguous  
+***********
+
+
+
+
+
+int *p; 
+
+p = malloc(sizeof(int)); 
+    //TC GCC {old}
+p = (int*)malloc(sizeof(int)); 
+
+
+char *c;
+c = (char*)malloc(sizeof(char)); 
+
+float *t;
+t = (float*)malloc(sizeof(float)); 
+
+
+
+
+why  ? 
+
+    malloc() return type ?
+    int , char , float ,double ? 
+
+    generic pointer -> void pointer -> 
+    void* 
+
+------------------------------------------------------------------------
+
+ask size of an array from user -> scan data in array -> 
+    1)find out max from an array
+    2)find out sum of all elements in an array
+
+-------------------------------------------------------------------------
+
+
+struct -> 
+
+
+-------------------------------------------------------------------------
+
+
+DMA 
+    calloc 
+    malloc 
+
+    free 
+
+    realloc -> resize +  -  
+
+    stdlib.h 
+
+---------------------------------------------------------------------------------
+
+
+
+Linear DS -> LinkedList -> dynamic list -> {} 
+
+        n number of items 
+        dynamic memory allocation 
+
+
+        when you want you allocate memory and use it 
+        when you dont want just release it 
+
+
+        20 30 40 50 -> allocation 
+
+        display -> 20 30 40 50 
+
+
+----------------------------------------------------------------------------------
 
 
 
