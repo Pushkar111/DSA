@@ -419,9 +419,67 @@ void reverse()
     head = prev;
 }
 
+// Case 15
+int size()
+{
+    int SIZE = 0;
+    struct node *ptr = head;
+    while (ptr != NULL)
+    {
+        SIZE++;
+        ptr = ptr->next;
+    }
+    return SIZE;
+}
+
+struct node *rotate(int k, int SIZE)
+{
+    // Check if the list is empty
+    if (SIZE == 0 || head == NULL)
+    {
+        printf("List is empty. Cannot rotate an empty list.\n");
+        return head;
+    }
+    
+    int loop = k % SIZE; 
+    loop = SIZE - loop;
+
+    if (SIZE == 1 || loop == SIZE)
+    {
+        printf("List has only one node or rotate is equal to list size. No need to rotate.\n");
+        return head;
+    }
+
+    struct node *temp = head;
+    struct node *firstAddress = head;
+    int j = 0;
+
+    while (temp != NULL)
+    {
+        j++;
+        if (j == loop)  
+        {
+            firstAddress = temp->next;
+            temp->next = NULL;
+            firstAddress->prev = NULL;
+            break;
+        }
+        temp = temp->next;
+    }
+    temp = firstAddress;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = head;
+
+    return firstAddress;
+}
+
 int main()
 {
     int choice, data, index, source;
+    int k;
 
     while (1)
     {
@@ -439,10 +497,11 @@ int main()
         printf("\n 9. DeleteInIndex");
         printf("\n 10. DeleteAtEnd");
         printf("\n 11. DeleteAfterValue");
-        printf("\n 12. Max and Min of SLL");
-        printf("\n 13. Sort the SLL");
-        printf("\n 14. Reverse the SLL");
-        printf("\n 15. EXIT");
+        printf("\n 12. Max and Min of DLL");
+        printf("\n 13. Sort the DLL");
+        printf("\n 14. Reverse the DLL");
+        printf("\n 15. Rotate the DLL");
+        printf("\n 16. EXIT");
         printf("\n=========================================");
         printf("\nEnter the choice: ");
         scanf("%d", &choice);
@@ -600,6 +659,19 @@ int main()
             break;
 
         case 15:
+            printf("\nEnter the No of Rotate u want : ");
+            scanf("%d", &k);
+
+            printf("\nBefore Rotate : ");
+            display();
+
+            head = rotate(k, size());
+
+            printf("\nAfter Rotate : ");
+            display();
+            break;
+
+        case 16:
             exit(0);
 
         default:
