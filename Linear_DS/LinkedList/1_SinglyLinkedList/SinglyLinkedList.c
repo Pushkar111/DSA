@@ -163,6 +163,21 @@ struct node *insertAfterValue(int source, int data)
 // Case 8
 struct node *deleteAtHead()
 {
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot delete from an empty list.\n");
+        return head;
+    }
+
+    // Check if the list has only one node
+    if (head->next == NULL)
+    {
+        free(head);
+        head = NULL;
+        return head;
+    }
+
     struct node *ptr = head;
     head = head->next;
     free(ptr);
@@ -172,6 +187,21 @@ struct node *deleteAtHead()
 // Case 9
 struct node *DeleteAtIndex(int index)
 {
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot delete from an empty list.\n");
+        return head;
+    }
+
+    // Check if the list has only one node
+    if (head->next == NULL)
+    {
+        free(head);
+        head = NULL;
+        return head;
+    }
+
     struct node *p = head;
     struct node *q = head->next;
     int i = 0;
@@ -201,6 +231,21 @@ struct node *DeleteAtIndex(int index)
 // Case 10
 struct node *deleteAtEnd()
 {
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot delete from an empty list.\n");
+        return head;
+    }
+
+    // Check if the list has only one node
+    if (head->next == NULL)
+    {
+        free(head);
+        head = NULL;
+        return head;
+    }
+
     struct node *p = head;
     struct node *q = head->next;
     while (q->next != NULL)
