@@ -261,6 +261,12 @@ struct node *deleteAtEnd()
 // Case 11
 struct node *deleteAfterValue(int source)
 {
+    // Check if the list is empty
+    if (head == NULL) {
+        printf("List is empty. Cannot delete from an empty list.\n");
+        return head;
+    }
+
     struct node *p = head;
     struct node *q = head->next;
     while (p != NULL && q != NULL)
@@ -289,6 +295,12 @@ struct node *deleteAfterValue(int source)
 // Case 12
 void findMaxMin()
 {
+    // Check if the list is empty
+    if (head == NULL) {
+        printf("List is empty. Cannot find max and min.\n");
+        return;
+    }
+
     struct node *ptr = head;
     int min = ptr->data;
     int max = ptr->data;
@@ -310,8 +322,16 @@ void findMaxMin()
     printf("\nMin : %d", min);
 }
 
+// Case 13
 void sort()
 {
+    // Check if the list is empty or has only one node
+    if (head == NULL || head->next == NULL) {
+        printf("List is empty or has only one node. No need to sort.\n");
+        return;
+    }
+
+    // Sort the list
     struct node *ptr = head;
     struct node *nextNode = NULL;
 
@@ -332,8 +352,16 @@ void sort()
     }
 }
 
+// Case 14
 void reverse()
 {
+    // Check if the list is empty or has only one node
+    if (head == NULL || head->next == NULL) {
+        printf("List is empty or has only one node. No need to reverse.\n");
+        return;
+    }
+
+    // Reverse the list    
     struct node *prev = NULL;
     struct node *current = head;
     struct node *next = NULL;
