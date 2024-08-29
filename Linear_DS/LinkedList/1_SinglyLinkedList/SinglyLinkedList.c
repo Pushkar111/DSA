@@ -427,7 +427,7 @@ struct node *rotate(int k, int SIZE)
         temp = temp->next;
     }
     temp = firstAddress;
-    
+
     while (temp->next != NULL)
     {
         temp = temp->next;
@@ -435,6 +435,37 @@ struct node *rotate(int k, int SIZE)
     temp->next = head;
 
     return firstAddress;
+}
+
+// Case 16
+struct node *swapPair()
+{
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot swap an empty list.\n");
+        return head;
+    }
+
+    struct node *dummy = (struct node *)malloc(sizeof(struct node));
+    dummy->next = head;
+
+    struct node *point = dummy;
+
+    while (point->next != NULL && point->next->next != NULL)
+    {
+        struct node *swap1 = point->next;
+        struct node *swap2 = point->next->next;
+
+        swap1->next = swap2->next;
+        swap2->next = swap1;
+
+        point->next = swap2;
+        point = swap1;
+    }
+    head = dummy->next;
+    free(dummy);
+    return head;
 }
 
 int main()
@@ -462,7 +493,8 @@ int main()
         printf("\n 13. Sort the SLL");
         printf("\n 14. Reverse the SLL");
         printf("\n 15. Rotate the SLL");
-        printf("\n 16. EXIT");
+        printf("\n 16. Swap nodes in pair");
+        printf("\n 17. EXIT");
         printf("\n=========================================");
         printf("\nEnter the choice: ");
         scanf("%d", &choice);
@@ -635,6 +667,16 @@ int main()
             break;
 
         case 16:
+            printf("\nBefore Swap nodes in Pair : ");
+            display();
+
+            head = swapPair();
+
+            printf("\nAfter Swap nodes in Pair : ");
+            display();
+            break;
+
+        case 17:
             exit(0);
 
         default:
