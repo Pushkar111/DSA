@@ -440,8 +440,8 @@ struct node *rotate(int k, int SIZE)
         printf("List is empty. Cannot rotate an empty list.\n");
         return head;
     }
-    
-    int loop = k % SIZE; 
+
+    int loop = k % SIZE;
     loop = SIZE - loop;
 
     if (SIZE == 1 || loop == SIZE)
@@ -457,7 +457,7 @@ struct node *rotate(int k, int SIZE)
     while (temp != NULL)
     {
         j++;
-        if (j == loop)  
+        if (j == loop)
         {
             firstAddress = temp->next;
             temp->next = NULL;
@@ -474,6 +474,48 @@ struct node *rotate(int k, int SIZE)
     temp->next = head;
 
     return firstAddress;
+}
+
+struct node *swapPair()
+{
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot swap an empty list.\n");
+        return head;
+    }
+
+    struct node *dummy = (struct node *)malloc(sizeof(struct node));
+    dummy->next = head;
+    dummy->prev = NULL;
+    head->prev = dummy;
+
+    struct node *point = dummy;
+
+    while (point->next != NULL && point->next->next != NULL)
+    {
+        struct node *swap1 = point->next;
+        struct node *swap2 = point->next->next;
+
+        swap1->next = swap2->next;
+        swap2->next = swap1;
+
+        swap1->prev = swap2;
+        swap2->prev = point;
+
+        if (swap1->next != NULL)
+        {
+            swap1->next->prev = swap1;
+        }
+
+        point->next = swap2;
+        point = swap1;
+    }
+    head = dummy->next;
+    head->prev = NULL;
+    free(dummy);
+
+    return head;
 }
 
 int main()
@@ -501,7 +543,8 @@ int main()
         printf("\n 13. Sort the DLL");
         printf("\n 14. Reverse the DLL");
         printf("\n 15. Rotate the DLL");
-        printf("\n 16. EXIT");
+        printf("\n 16. Swap nodes in pair");
+        printf("\n 17. EXIT");
         printf("\n=========================================");
         printf("\nEnter the choice: ");
         scanf("%d", &choice);
@@ -672,6 +715,16 @@ int main()
             break;
 
         case 16:
+            printf("\nBefore Swap nodes in Pair : ");
+            display();
+
+            head = swapPair();
+
+            printf("\nAfter Swap nodes in Pair : ");
+            display();
+            break;
+
+        case 17:
             exit(0);
 
         default:
