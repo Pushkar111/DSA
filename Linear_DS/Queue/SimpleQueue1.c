@@ -101,6 +101,59 @@ void display(int queue[])
     }
 }
 
+void findMaxMin(int queue[])
+{
+    int i;
+    int max, min;
+
+    if (front == -1)
+    {
+        printf("\nQueue is Underflow(empty)");
+    }
+    else
+    {
+        min = queue[front];
+        max = queue[front];
+
+        for (i = front; i <= rear; i++)
+        {
+            if (queue[i] > max)
+            {
+                max = queue[i];
+            }
+            if (queue[i] < min)
+            {
+                min = queue[i];
+            }
+        }
+    }
+    printf("\nMaximum element in the queue : %d", max);
+    printf("\nMinimum element in the queue : %d", min);
+}
+
+void sort(int queue[])
+{
+    int temp, i, j;
+
+    if (front == -1)
+    {
+        printf("\nQueue is Underflow(empty)");
+    }
+    else
+    {
+        for (i = front; i <= rear; i++)
+        {
+            for (j = i + 1; j <= rear; j++)
+            {
+                temp = queue[i];
+                queue[i] = queue[j];
+                queue[j] = temp;
+            }
+        }
+    }
+    printf("\nQueue is sorted in ascending order.");
+}
+
 int main()
 {
     int queue[SIZE];
@@ -114,8 +167,10 @@ int main()
         printf("\n1. enQueue");
         printf("\n2. deQueue");
         printf("\n3. display");
-        printf("\n4. Count");
-        printf("\n5. Exit");
+        printf("\n4. Count Empty Spaces");
+        printf("\n5. Find Max and Min");
+        printf("\n6. Sort");
+        printf("\n7. Exit");
         printf("\n==============================================");
 
         printf("\nEnter choice : ");
@@ -142,15 +197,21 @@ int main()
             break;
 
         case 5:
-            exit(0);
+            findMaxMin(queue);
             break;
+
+        case 6:
+            sort(queue);
+            break;
+
+        case 7:
+            exit(0);
 
         default:
             printf("\nInvalid Choice");
             break;
         }
     }
-
     return 0;
 }
 
