@@ -447,24 +447,23 @@ struct node *swapPair()
         return head;
     }
 
-    struct node *dummy = (struct node *)malloc(sizeof(struct node));
-    dummy->next = head;
+    int temp;
+    struct node *p = head;
+    struct node *q = p->next;
 
-    struct node *point = dummy;
-
-    while (point->next != NULL && point->next->next != NULL)
+    while (p != NULL && q->next != NULL)
     {
-        struct node *swap1 = point->next;
-        struct node *swap2 = point->next->next;
-
-        swap1->next = swap2->next;
-        swap2->next = swap1;
-
-        point->next = swap2;
-        point = swap1;
+        if (p->next == NULL)
+        {
+            break;
+        }
+        q = p->next;
+        temp = p->data;
+        p->data = q->data;
+        q->data = temp;
+        p = q->next;
     }
-    head = dummy->next;
-    free(dummy);
+
     return head;
 }
 
