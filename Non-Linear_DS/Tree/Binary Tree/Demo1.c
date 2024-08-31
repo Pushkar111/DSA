@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+struct node
+{
     int data;
     struct node *left;
     struct node *right;
-}*root = NULL;
+} *root = NULL;
 
-int main(){
-
+int main()
+{
     struct node *leftChild, *rightChild;
 
     root = (struct node *)malloc(sizeof(struct node));
     root->data = 10;
-    
+
     leftChild = (struct node *)malloc(sizeof(struct node));
     leftChild->data = 20;
     leftChild->left = NULL;
