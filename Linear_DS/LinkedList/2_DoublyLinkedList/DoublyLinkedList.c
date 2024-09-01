@@ -289,7 +289,7 @@ struct node *deleteAtEnd()
 }
 
 // Case 11
-struct node *deleteAfterValue(int source)
+struct node *deleteValue(int source)
 {
     // Check if the list is empty
     if (head == NULL)
@@ -299,33 +299,40 @@ struct node *deleteAfterValue(int source)
     }
 
     struct node *p = head;
-    struct node *q = head->next;
-    while (p != NULL && q != NULL)
+    struct node *q = head;
+    int flag = 0;
+
+    while (p != NULL)
     {
         if (p->data == source)
         {
+            flag = 1;
             break;
         }
+        q = p;
         p = p->next;
-        q = q->next;
     }
 
-    if (p != NULL && q != NULL)
+    if (flag)
     {
-        // Update the next pointer of the node before the node to be deleted
-        p->next = q->next;
-
-        // Update the prev pointer of the node after the node to be deleted
-        if (q->next != NULL)
+        if (p == head)
         {
-            q->next->prev = p;
+            deleteAtHead();
         }
-
-        free(q);
+        else if (p->next == NULL)
+        {
+            deleteAtEnd();
+        }
+        else
+        {
+            q->next = p->next;
+            p->next->prev = q;
+            free(p);
+        }
     }
     else
     {
-        printf("Source not found\n");
+        printf("source not found");
     }
 
     return head;
@@ -525,7 +532,7 @@ int main()
         printf("\n 8. DeleteAtHead");
         printf("\n 9. DeleteInIndex");
         printf("\n 10. DeleteAtEnd");
-        printf("\n 11. DeleteAfterValue");
+        printf("\n 11. DeleteValue");
         printf("\n 12. Max and Min of DLL");
         printf("\n 13. Sort the DLL");
         printf("\n 14. Reverse the DLL");
@@ -654,7 +661,7 @@ int main()
             printf("\nBefore DeleteAfterValue :");
             display();
 
-            head = deleteAfterValue(source);
+            head = deleteValue(source);
 
             printf("\nAfter DeleteAfterValue :");
             display();
