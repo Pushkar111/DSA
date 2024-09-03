@@ -75,9 +75,9 @@ void inOrder(struct node *root)
 {
   if (root != NULL)
   {
-    postOrder(root->left);
+    inOrder(root->left);
     printf("%d ", root->data);
-    postOrder(root->right);
+    inOrder(root->right);
   }
 }
 
@@ -106,6 +106,9 @@ int main()
          2    3
         /      \
        1        4
+       -> pre-order  : 7 2 1 3 4
+       -> post-order : 1 2 4 3 7
+       -> in-order   : 1 2 7 3 4
 
   2)
             4
@@ -113,6 +116,9 @@ int main()
          1    6
         / \
        5   2
+       -> pre-order  : 4 1 5 2 6 
+       -> post-order : 5 2 1 6 4
+       -> in-order   : 5 1 2 4 6
   */
 
   struct node *root;
