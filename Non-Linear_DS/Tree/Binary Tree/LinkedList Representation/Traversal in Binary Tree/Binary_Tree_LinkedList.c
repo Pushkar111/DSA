@@ -36,12 +36,8 @@ struct node
   struct node *right;
 };
 
-struct node *createNode()
+struct node *createNode(int data)
 {
-  int data;
-  printf("Enter the data : ");
-  scanf("%d", &data);
-
   struct node *node;
   node = (struct node *)malloc(sizeof(struct node));
   node->data = data;
@@ -146,18 +142,18 @@ int main()
     {
     case 1:
       // 1)
-      // root = createNode();
-      // root->left = createNode();
-      // root->right = createNode();
-      // root->left->left = createNode();
-      // root->right->right = createNode();
+      // root = createNode(7);
+      // root->left = createNode(2);
+      // root->right = createNode(3);
+      // root->left->left = createNode(1);
+      // root->right->right = createNode(4);
 
       // 2)
-      root = createNode();
-      root->left = createNode();
-      root->right = createNode();
-      root->left->left = createNode();
-      root->left->right = createNode();      
+      root = createNode(4);
+      root->left = createNode(1);
+      root->right = createNode(6);
+      root->left->left = createNode(5);
+      root->left->right = createNode(2);      
       break;
 
     case 2:
