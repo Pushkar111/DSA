@@ -33,11 +33,8 @@ struct node
   struct node *right;
 };
 
-struct node *createNode()
+struct node *createNode(int data)
 {
-  int data;
-  printf("Enter the data : ");
-  scanf("%d", &data);
   struct node *temp;
   temp = (struct node *)malloc(sizeof(struct node));
   temp->data = data;
@@ -71,11 +68,11 @@ void printTree(struct node *root)
 
 int main()
 {
-  struct node *root = createNode();
+  struct node *root = createNode(1);
 
-  struct node *leftChild = createNode();
+  struct node *leftChild = createNode(2);
 
-  struct node *rightChild = createNode();
+  struct node *rightChild = createNode(3);
 
   root->left = leftChild;
   root->right = rightChild;
