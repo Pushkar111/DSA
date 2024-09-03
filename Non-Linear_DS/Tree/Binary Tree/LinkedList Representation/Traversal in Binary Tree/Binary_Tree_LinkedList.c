@@ -100,11 +100,19 @@ int findHeight(struct node *root)
 int main()
 {
   /*
+  1)
             7
           /  \
          2    3
         /      \
        1        4
+
+  2)
+            4
+          /  \
+         1    6
+        / \
+       5   2
   */
 
   struct node *root;
@@ -131,11 +139,19 @@ int main()
     switch (choice)
     {
     case 1:
+      // 1)
+      // root = createNode();
+      // root->left = createNode();
+      // root->right = createNode();
+      // root->left->left = createNode();
+      // root->right->right = createNode();
+
+      // 2)
       root = createNode();
       root->left = createNode();
       root->right = createNode();
       root->left->left = createNode();
-      root->right->right = createNode();
+      root->left->right = createNode();      
       break;
 
     case 2:
