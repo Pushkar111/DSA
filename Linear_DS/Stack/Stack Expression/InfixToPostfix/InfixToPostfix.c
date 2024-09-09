@@ -17,9 +17,9 @@ False Conditions:
 */
 #include <stdio.h>
 #include <ctype.h> //use for excessing isalnum() function
-#define max 50     // MACRO
+#define SIZE 50    // MACRO
 
-char stack[max];
+char stack[SIZE];
 int top = -1;
 
 void push(char element) // you can write push(char element) also:-void would be added by DEFAULT
@@ -49,14 +49,10 @@ int priority(char element)
     }
 }
 
-int main()
+void infixToPostfix(char infix[], char postfix[])
 {
-    char infix[50], postfix[50], ch, element;
+    char ch, element;
     int i = 0, k = 0;
-
-    printf("-------------------READ THE INFIX-------------------------");
-    printf("\nEnter Infix Expression : ");
-    scanf("%s", infix);
 
     push('#'); // # use for Checkpost
 
@@ -92,6 +88,19 @@ int main()
         postfix[k++] = pop();
     }
     postfix[k] = '\0';
+}
+
+int main()
+{
+    char infix[50], postfix[50], ch, element;
+
+    printf("-------------------READ THE INFIX-------------------------");
+    printf("\nEnter Infix Expression : ");
+    scanf("%s", infix);
+
+    infixToPostfix(infix, postfix);
+
     printf("\n\nGiven Infix Expression : %s  \nPostfix Expression : %s\n", infix, postfix);
+
     return 0;
 }
