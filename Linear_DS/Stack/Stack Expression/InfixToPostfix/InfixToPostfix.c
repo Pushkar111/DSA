@@ -92,7 +92,7 @@ void infixToPostfix(char infix[], char postfix[])
 
 int main()
 {
-    char infix[50], postfix[50], ch, element;
+    char infix[50], postfix[50];
 
     printf("-------------------READ THE INFIX-------------------------");
     printf("\nEnter Infix Expression : ");
