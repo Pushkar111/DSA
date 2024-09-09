@@ -100,8 +100,8 @@ void postOrder(struct node *root)
 {
     if (root != NULL)
     {
-        preOrder(root->left);
-        preOrder(root->right);
+        postOrder(root->left);
+        postOrder(root->right);
         printf("%d ", root->data);
     }
 }
