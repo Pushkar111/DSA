@@ -4,7 +4,7 @@
 1) {}, [], ()         None
 2) ^                  Right to left
 3) /, *               left to Right
-4) +, -               left to Right
+4) +, -               left to Right  
 ==========================================
 
 
