@@ -127,4 +127,88 @@ Simple Algorithm : Infix to Postfix Conversion
     • Pop all remaining operators from the stack and add them to the postfix expression.
 5) End:
     • The postfix expression is now ready.
+
+
+---------------------------------------
+Conversion Infix to Postfix using stack
+---------------------------------------
+1) 
+Infix      ->   a-b-d*e/f+b*c
+postfix    ->   ab-de*f/-bc*+
+
+infix                   Stack                   postfix
+------------------------------------------------------------------------------
+a             									a
+-						-						a
+b						-						ab
+-						-						ab-	
+d						-						ab-d
+*						-*						ab-d
+e						-*						ab-de	
+/						-/						ab-de*
+f						-/						ab-de*f
++						+						ab-de*f/-
+b						+						ab-de*f/-b
+*						+*						ab-de*f/-b
+c						+*						ab-de*f/-bc
+End of String									a b - d e * f / - b c * +
+
+
+2) 
+Infix      ->    A * (B + C ^ D) / (E - F) + G ^ H / (I + J)
+postfix    ->    A B C D ^ + * E F - / G H ^ I J + / +
+
+infix                   Stack                   postfix
+------------------------------------------------------------------------------
+A												A
+*						*						A
+(						*(						A
+B						*(						AB
++						*(+						AB
+C						*(+						ABC
+^						*(+^					ABC
+D						*(+^					ABCD
+)						*						ABCD^+
+/						/						ABCD^+*
+(						/(						ABCD^+*
+E						/(						ABCD^+*E
+-						/(-						ABCD^+*E
+F						/(-						ABCD^+*EF
+)						/						ABCD^+*EF-	
++						+						ABCD^+*EF-/
+G						+						ABCD^+*EF-/G
+^						+^						ABCD^+*EF-/G
+H						+^						ABCD^+*EF-/GH
+/						+/						ABCD^+*EF-/GH^
+(						+/(						ABCD^+*EF-/GH^
+I						+/(						ABCD^+*EF-/GH^I
++						+/(+					ABCD^+*EF-/GH^I
+J						+/(+					ABCD^+*EF-/GH^IJ
+)						+/						ABCD^+*EF-/GH^IJ+
+End of String 									A B C D ^ + * E F - / G H ^ I J + / + 
+
+
+3)
+Infix      ->    (A+B)*C/D+E^F/G
+Postfix    ->    
+
+infix                   Stack                   postfix
+------------------------------------------------------------------------------
+(                       (                       
+A                       (                        A
++                       (+                       A
+B                       (+                       B
+)                                                B+
+*                       *                        B+
+C                       *                        B+C
+/                       /                        B+C*
+D                       /                        B+C*D                   
++                       +                        B+C*D/
+E                       +                        B+C*D/E
+^                       +^                       B+C*D/E   
+F                       +^                       B+C*D/EF
+/                       +/                       B+C*D/EF^   
+G                       +/                       B+C*D/EF^G
+End of String                                    B+C*D/EF^G/+
+
 */
