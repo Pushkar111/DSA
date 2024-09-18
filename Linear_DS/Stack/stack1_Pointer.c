@@ -166,17 +166,17 @@ int main()
 Stack → LiFo -> Last In First Out
 ----------------------------------------------------------------
 Define Stack :
-    -> Stack is an ordered collection of ab elements in which
-       insertion and deletions are restricted to one end.The end
-       from which elements are occupied or removed is referred as top of stack.
+    -> Stack is an linear Data Structure in which
+       insertion and deletions are Perform at one end only.
+    -> Stack is used to store data in a particular order.
+    -> Stack is used to implement LIFO (Last In First Out) 
 ----------------------------------------------------------------
 List out Basic Operations on Stack :
     1) push operation
     2) pop operation
     3) display operation
     4) peek operation
-    5) isEmpty: Returns true if stack is empty, else false.
-    6) isFull : returns true if the stack is full else false
+    5) change operation
 ----------------------------------------------------------------
 stack Example [Technical life] :-
     1) Recursion
@@ -194,11 +194,10 @@ stack Example [practical life] :-
 ----------------------------------------------------------------
 
 1) push() operation :- The process of putting a new data element
-                      onto a stack is known as a Push Operation.
+                      into a stack is known as a Push Operation.
 
--> it is used to add data in stack
 -> it is used to insert data in stack
--> if stack is full then stack is overflown
+-> if stack is full then stack is overflow
 
 => Algorithm of void push(int no)
     step-1 : Check if stack is full or not
