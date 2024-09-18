@@ -104,3 +104,27 @@ int main()
 
     return 0;
 }
+
+/*
+Simple Algorithm : Infix to Postfix Conversion
+------------------
+1) Initialize the Stack:
+    • Push a special symbol # onto the stack (acts as a base marker).
+    • Set up an empty postfix expression to store the result.
+2) Read the Infix Expression:   
+    • Process the infix expression character by character.
+3) Character Handling:
+    • If the character is an operand (A-Z, 0-9):
+            Add it directly to the postfix expression.
+    • If the character is '(' (opening parenthesis):
+            Push it onto the stack.
+    • If the character is ')' (closing parenthesis):
+            Pop and append operators from the stack to the postfix expression until you reach the '(' Then discard the '('.
+    • If the character is an operator (+, -, *, /, etc.):
+            While the top of the stack has an operator with higher or equal precedence, pop it and add it to the postfix expression.
+            Push the current operator onto the stack.
+4) After Reading All Characters:
+    • Pop all remaining operators from the stack and add them to the postfix expression.
+5) End:
+    • The postfix expression is now ready.
+*/
