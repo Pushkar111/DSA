@@ -3,9 +3,9 @@
 #include <conio.h>
 #include <stdlib.h>
 
-//       char source, char destination, char helper
+//                          char source, char helper, char destination
 
-void TowerOfHanoi(int no, char rodA, char rodC, char rodB)
+void TowerOfHanoi(int no, char rodA, char rodB, char rodC)
 {
     if (no == 1)
     {
@@ -13,9 +13,9 @@ void TowerOfHanoi(int no, char rodA, char rodC, char rodB)
     }
     else
     {
-        TowerOfHanoi(no - 1, rodA, rodB, rodC);
+        TowerOfHanoi(no - 1, rodA, rodC, rodB);
         printf("Move disk %d from %c to %c\n", no, rodA, rodC);
-        TowerOfHanoi(no - 1, rodB, rodC, rodA);
+        TowerOfHanoi(no - 1, rodB, rodA, rodC);
     }
 }
 
@@ -26,7 +26,7 @@ int main()
     printf("Enter the number of disks: ");
     scanf("%d", &no);
 
-    TowerOfHanoi(no, 'A', 'C', 'B');
+    TowerOfHanoi(no, 'A', 'B', 'C');
 
     return 0;
 }
