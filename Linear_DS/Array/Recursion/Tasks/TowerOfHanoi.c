@@ -5,28 +5,28 @@
 
 //                          char source, char helper, char destination
 
-void TowerOfHanoi(int no, char rodA, char rodB, char rodC)
+void TowerOfHanoi(int n, char rodA, char rodB, char rodC)
 {
-    if (no == 1)
+    if (n == 1)
     {
-        printf("Move disk %d from %c to %c\n", no, rodA, rodC);
+        printf("Move disk %d from %c to %c\n", n, rodA, rodC);
     }
     else
     {
-        TowerOfHanoi(no - 1, rodA, rodC, rodB);
-        printf("Move disk %d from %c to %c\n", no, rodA, rodC);
-        TowerOfHanoi(no - 1, rodB, rodA, rodC);
+        TowerOfHanoi(n - 1, rodA, rodC, rodB);
+        printf("Move disk %d from %c to %c\n", n, rodA, rodC);
+        TowerOfHanoi(n - 1, rodB, rodA, rodC);
     }
 }
 
 int main()
 {
-    int no;
+    int n;
 
     printf("Enter the number of disks: ");
-    scanf("%d", &no);
+    scanf("%d", &n);
 
-    TowerOfHanoi(no, 'A', 'B', 'C');
+    TowerOfHanoi(n, 'A', 'B', 'C');
 
     return 0;
 }
