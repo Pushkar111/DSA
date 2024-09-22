@@ -37,6 +37,50 @@ struct node *insertAtOrder(int data)
     return head;
 }
 
+struct node *delete(int source)
+{
+    struct node *current, *previous;
+
+    // Check if the list is empty
+    if (head == NULL)
+    {
+        printf("Error: List is empty (Underflow)\n");
+        return head;
+    }
+
+    current = head;
+
+    // Traverse to find the node with source
+    while (current != NULL && current->data != source)
+    {
+        previous = current;
+        current = current->next;
+    }
+
+    // If the node was not found in the list
+    if (current == NULL)
+    {
+        printf("Error: node with data %d not found\n", source);
+        return head;
+    }
+
+    // If the node to be deleted is the head
+    if (current == head)
+    {
+        head = head->next;
+    }
+    else
+    {
+        // For middle or end node, link previous node to the next node
+        previous->next = current->next;
+    }
+
+    // Free the memory of the deleted node
+    free(current);
+
+    return head;
+}
+
 void display()
 {
     struct node *ptr = head;
@@ -58,5 +102,8 @@ int main()
 
     display();
 
+    delete(25);
+
+    display();
     return 0;
 }
