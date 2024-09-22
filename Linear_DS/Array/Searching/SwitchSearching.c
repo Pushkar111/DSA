@@ -1,3 +1,22 @@
+/*
+1) Linear Search
+=> Time Complexity : 
+    Best case  : O(1)
+    worst case : O(n)
+    avg case   : O(n)
+
+=> Space Complexity : O(1)
+
+2) Binary Search
+=> Time Complexity : 
+    Best case  : O(1)
+    worst case : O(log n)
+    avg case   : O(log n)
+
+=> Space Complexity : O(1)
+
+*/
+
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
