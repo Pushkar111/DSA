@@ -10,17 +10,16 @@ void enQueue(int queue[], int no)
     {
         printf("\nQueue is Overflow(full)");
     }
+    else if (front == -1 && rear == -1)
+    {
+        front = 0;
+        rear = 0;
+        queue[rear] = no;
+    }
     else
     {
-        if (front == -1)
-        {
-            front = 0;
-        }
-        else
-        {
-            rear++;
-            queue[rear] = no;
-        }
+        rear++;
+        queue[rear] = no;
     }
 }
 
@@ -30,20 +29,16 @@ void deQueue(int queue[])
     {
         printf("\nQueue is Underflow(empty)");
     }
+    else if (front == rear) // last element of queue
+    {
+        printf("\n%d is deleted", queue[front]);
+        front = -1;
+        rear = -1;
+    }
     else
     {
-        // last element of queue
-        if (front == rear)
-        {
-            printf("\n%d is deleted", queue[front]);
-            front = -1;
-            rear = -1;
-        }
-        else
-        {
-            printf("\n%d is deleted", queue[front]);
-            front++;
-        }
+        printf("\n%d is deleted", queue[front]);
+        front++;
     }
 }
 
