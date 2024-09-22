@@ -142,7 +142,7 @@ int main()
 -------------------------------------------
     step-1 : define SIZE 5
     step-2 : initialize int a[SIZE], index = -1, key
-    step-3 : input the sorted array and store the value in array a
+    step-3 : input the array and store the value in array a
     step-4 : input the key for the search
     step-5 : Linear search Loop
              for(i = 0; i < size; i++)
@@ -159,7 +159,7 @@ int main()
     step-1 : define SIZE 5
     step-2 : initialize int a[SIZE], index = -1, key,
              min = 0, mid, max = SIZE - 1
-    step-3 : input the array and store the value in array a
+    step-3 : input the sorted array and store the value in array a
     step-4 : input the key for the search
     step-5 : Binary search loop
              while(min < max)
