@@ -9,7 +9,8 @@ struct node
 
 struct node *head = NULL;
 struct node *last = NULL;
-
+struct node *dup = NULL;
+            
 // Case 1
 void addNode(int data)
 {
@@ -481,6 +482,22 @@ struct node *swapPair()
     return head;
 }
 
+// Case 17
+struct node *copyList(struct node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        struct node *ptr = (struct node *)malloc(sizeof(struct node));
+        ptr->data = head->data;
+        ptr->next = copyList(head->next);
+        return ptr;
+    }
+}
+
 int main()
 {
     int choice, data, index, source;
@@ -507,7 +524,8 @@ int main()
         printf("\n 14. Reverse the SLL");
         printf("\n 15. Rotate the SLL");
         printf("\n 16. Swap nodes in pair");
-        printf("\n 17. EXIT");
+        printf("\n 17. Copy List");
+        printf("\n 18. EXIT");
         printf("\n=========================================");
         printf("\nEnter the choice: ");
         scanf("%d", &choice);
@@ -690,6 +708,16 @@ int main()
             break;
 
         case 17:
+            dup = copyList(head);
+            while (dup != NULL)
+            {
+                printf(" %d -> ", dup->data);
+                dup = dup->next;
+            }
+            printf("NULL\n");
+            break;
+
+        case 18:
             exit(0);
 
         default:
