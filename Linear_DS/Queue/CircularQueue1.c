@@ -1,3 +1,8 @@
+/*
+rear = (rear + 1) % SIZE;
+front = (front + 1) % SIZE;
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 5
@@ -6,22 +11,22 @@ int front = -1, rear = -1;
 
 void enQueue(int queue[], int no)
 {
-    if (front == 0 && rear == SIZE - 1)
+    if ((front == 0 && rear == SIZE - 1) || front == rear + 1) 
     {
         printf("\nQueue is Overflow(full)");
     }
-    else if (front == -1)
+    else if (front == -1 && rear == -1) // First Element Condition
     {
         front = 0;
         rear = 0;
         queue[rear] = no;
     }
-    else if (rear == SIZE - 1)
+    else if (rear == SIZE - 1) // Last Element Condition with front != 0 
     {
         rear = 0;
         queue[rear] = no;
     }
-    else
+    else // Middle Element
     {
         rear++;
         queue[rear] = no;
@@ -72,7 +77,18 @@ void display(int queue[])
         else
         {
             // CircularQueue
-            for (int i = front; i <= SIZE - 1; i++)
+            /*
+            60      70      30      40      50 
+                    ↓       ↓
+                    rear    front    
+                    (1)      (2)
+            
+            Example --> front = 2, rear = 1
+                        1) so first print front = 2 to SIZE Elements
+                        2) then Second print 0 to rear = 1
+            
+            */
+            for (int i = front; i < SIZE; i++) 
             {
                 printf("%d => %d\n", i, queue[i]);
             }
