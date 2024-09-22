@@ -3,7 +3,7 @@
 =================================================================================================================================
 |                          Linear Search                        |                          Binary Search                        |
 =================================================================================================================================
-| 1) Sorted list is Required                                    | 1) Sorted list is not Required                                |
+| 1) Sorted list is not Required                                | 1) Sorted list is Required                                    |
 | 2) it can be used in LinkedList implementation                | 2) it cannot be used in LinkedList implementation             |
 | 3) The Average number of comparison is very high              | 3) The Average number of comparison is very slow              |
 | 4) Time taken to search elements is more                      | 4) Time taken to search elements is less                      |
