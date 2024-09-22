@@ -13,6 +13,7 @@
         "algorithm": "c",
         "functional": "c",
         "array": "c",
-        "string": "c"
+        "string": "c",
+        "random": "c"
     }
 }
