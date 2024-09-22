@@ -4,7 +4,11 @@ Bubble Sort(comparison sort)
     Average Case: O(n^2)
     Worst Case: O(n^2)
 
- */
+
+==> Number of Passes = n-1
+==> Number of Comparisons = n*(n-1)/2
+ 
+*/
 
 // 55 87 65 43 45 67 89
 
@@ -50,7 +54,6 @@ void bubbleSort(int a[], int SIZE)
     {
         printf("\nNumber of exchange: %d\n", ex);
     }
-    
 }
 
 int main()
