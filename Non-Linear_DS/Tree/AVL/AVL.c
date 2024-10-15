@@ -39,6 +39,61 @@ int max(int lh, int rh)
     return (lh > rh) ? lh : rh;
 }
 
+void inOrder(struct node *root)
+{
+    if (root != NULL)
+    {
+        inOrder(root->left);
+        int bf = findHeight(root->left) - findHeight(root->right);
+        printf("%d(%d) ", root->data, bf);
+        inOrder(root->right);
+    }
+}
+
+struct node *leftRotate(struct node *root)
+{
+    struct node *newRoot = root->right;
+
+    if (newRoot->left == NULL) // RR
+    {
+        root->right = newRoot->left; // root->right = NULL;
+        newRoot->left = root;
+    }
+    else // RL
+    {
+        struct node *temp = newRoot->left;
+        newRoot->left = root;
+        root->right = temp;
+    }
+
+    root->height = max(findHeight(root->left), findHeight(root->right)) + 1;
+    newRoot->height = max(findHeight(newRoot->left), findHeight(newRoot->right)) + 1;
+
+    return newRoot;
+}
+
+struct node *rightRotate(struct node *root)
+{
+    struct node *newRoot = root->left;
+
+    if (newRoot->left == NULL) // LL
+    {
+        root->left = newRoot->right; // root->left = NULL;
+        newRoot->right = root;
+    }
+    else
+    {
+        struct node *temp = newRoot->right;
+        newRoot->right = root;
+        root->left = temp;
+    }
+
+    root->height = max(findHeight(root->left), findHeight(root->right)) + 1;
+    newRoot->height = max(findHeight(newRoot->left), findHeight(newRoot->right)) + 1;
+
+    return newRoot;
+}
+
 struct node *insertNode(struct node *root, int data)
 {
     if (root == NULL)
@@ -68,10 +123,16 @@ struct node *insertNode(struct node *root, int data)
             if (data > root->right->data)
             {
                 printf("\nRIGHT");
+                printf("\nBefore Rotations : ");
+                inOrder(root);
+                root = leftRotate(root);
             }
             else
             {
                 printf("\nLEFT");
+                printf("\nBefore Rotations : ");
+                inOrder(root);
+                root = leftRotate(root);
             }
         }
         else
@@ -80,25 +141,21 @@ struct node *insertNode(struct node *root, int data)
             if (data < root->left->data)
             {
                 printf("\nLEFT");
+                printf("\nBefore Rotations : ");
+                inOrder(root);
+                root = rightRotate(root);
             }
             else
             {
                 printf("\nRIGHT");
+                printf("\nBefore Rotations : ");
+                inOrder(root);
+                root = rightRotate(root);
             }
         }
     }
 
     return root;
-}
-
-void inOrder(struct node *root)
-{
-    if (root != NULL)
-    {
-        inOrder(root->left);
-        printf("%d(%d) ", root->data, root->height);
-        inOrder(root->right);
-    }
 }
 
 int main()
@@ -118,30 +175,41 @@ int main()
     {
     case 1:
         // RR
+
+        /* Example : 1 */
         root = insertNode(root, 10);
-        insertNode(root, 20);
-        insertNode(root, 30);
+        root = insertNode(root, 20);
+        root = insertNode(root, 30);
+
+        /* Example : 2 */
+        // root = insertNode(root, 70);
+        // root = insertNode(root, 40);
+        // root = insertNode(root, 80);
+        // root = insertNode(root, 75);
+        // root = insertNode(root, 90);
+        // root = insertNode(root, 100);
         break;
 
     case 2: // LL
         root = insertNode(root, 30);
-        insertNode(root, 20);
-        insertNode(root, 10);
+        root = insertNode(root, 20);
+        root = insertNode(root, 10);
         break;
 
     case 3: // RL
         root = insertNode(root, 10);
-        insertNode(root, 30);
-        insertNode(root, 20);
+        root = insertNode(root, 30);
+        root = insertNode(root, 20);
         break;
 
     case 4: // LR
         root = insertNode(root, 30);
-        insertNode(root, 10);
-        insertNode(root, 20);
+        root = insertNode(root, 10);
+        root = insertNode(root, 20);
         break;
     }
 
-    // inOrder(root);
+    printf("\nAfter Rotations : ");
+    inOrder(root);
     return 0;
 }
