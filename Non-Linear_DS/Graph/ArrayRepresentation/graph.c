@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #define VERTEX 4
 
-void createGraph(int a[VERTEX][VERTEX])
-{
+void createGraph(int a[VERTEX][VERTEX]) // initialize
+{ 
     for (int i = 0; i < VERTEX; i++)
     {
         for (int j = 0; j < VERTEX; j++)
@@ -13,7 +13,7 @@ void createGraph(int a[VERTEX][VERTEX])
     }
 }
 
-void createEdge(int a[VERTEX][VERTEX], int i, int j)
+void createEdge(int a[VERTEX][VERTEX], int i, int j) // insertEdge
 {
     a[i][j] = 1;
     a[j][i] = 1;
@@ -83,5 +83,5 @@ int main()
     printConnectedEdges(a, 3);
 
     return 0;
-    
+
 }
