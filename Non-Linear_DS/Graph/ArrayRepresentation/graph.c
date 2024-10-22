@@ -1,9 +1,13 @@
+/*
+Graph :- Collection of vertices connected through Edges.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define VERTEX 4
 
 void createGraph(int a[VERTEX][VERTEX]) // initialize
-{ 
+{
     for (int i = 0; i < VERTEX; i++)
     {
         for (int j = 0; j < VERTEX; j++)
@@ -53,6 +57,10 @@ void printConnectedEdges(int a[VERTEX][VERTEX], int userVertex)
         {
             printf("No edges connected with vertex %d\n", userVertex);
         }
+        else
+        {
+            printf("\n");
+        }
     }
 }
 
@@ -67,7 +75,7 @@ int main()
     0-------3
     |       |        ==> V : {0, 1, 2, 3}
     |       |        ==> E : {0-1, 0-3, 1-2, 2-3}
-    1-------2 
+    1-------2
 
     */
     createEdge(a, 0, 1);
@@ -83,5 +91,4 @@ int main()
     printConnectedEdges(a, 3);
 
     return 0;
-
 }
