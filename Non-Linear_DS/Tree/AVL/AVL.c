@@ -52,19 +52,25 @@ void inOrder(struct node *root)
 
 struct node *leftRotate(struct node *root)
 {
-    struct node *newRoot = root->right;
+    // struct node *newRoot = root->right;
 
-    if (newRoot->left == NULL) // RR
-    {
-        root->right = newRoot->left; // root->right = NULL;
-        newRoot->left = root;
-    }
-    else // RL
-    {
-        struct node *temp = newRoot->left;
-        newRoot->left = root;
-        root->right = temp;
-    }
+    // if (newRoot->left == NULL) // RR
+    // {
+    //     root->right = newRoot->left; // root->right = NULL;
+    //     newRoot->left = root;
+    // }
+    // else // RL
+    // {
+    //     struct node *temp = newRoot->left;
+    //     newRoot->left = root;
+    //     root->right = temp;
+    // }
+
+    struct node *newRoot = root->right;
+    struct node *temp = root->left;
+
+    newRoot->left = root;
+    root->right = temp;
 
     root->height = max(findHeight(root->left), findHeight(root->right)) + 1;
     newRoot->height = max(findHeight(newRoot->left), findHeight(newRoot->right)) + 1;
@@ -74,19 +80,25 @@ struct node *leftRotate(struct node *root)
 
 struct node *rightRotate(struct node *root)
 {
-    struct node *newRoot = root->left;
+    // struct node *newRoot = root->left;
 
-    if (newRoot->left == NULL) // LL
-    {
-        root->left = newRoot->right; // root->left = NULL;
-        newRoot->right = root;
-    }
-    else
-    {
-        struct node *temp = newRoot->right;
-        newRoot->right = root;
-        root->left = temp;
-    }
+    // if (newRoot->left == NULL) // LL
+    // {
+    //     root->left = newRoot->right; // root->left = NULL;
+    //     newRoot->right = root;
+    // }
+    // else
+    // {
+    //     struct node *temp = newRoot->right;
+    //     newRoot->right = root;
+    //     root->left = temp;
+    // }
+
+    struct node *newRoot = root->left;
+    struct node *temp = root->right;
+
+    newRoot->right = root;
+    root->left = temp;
 
     root->height = max(findHeight(root->left), findHeight(root->right)) + 1;
     newRoot->height = max(findHeight(newRoot->left), findHeight(newRoot->right)) + 1;
@@ -125,14 +137,15 @@ struct node *insertNode(struct node *root, int data)
                 printf("\nRIGHT");
                 printf("\nBefore Rotations : ");
                 inOrder(root);
-                root = leftRotate(root);
+                return leftRotate(root);
             }
             else
             {
                 printf("\nLEFT");
                 printf("\nBefore Rotations : ");
                 inOrder(root);
-                root = leftRotate(root);
+                root->right = rightRotate(root->right);
+                return leftRotate(root);
             }
         }
         else
@@ -143,14 +156,15 @@ struct node *insertNode(struct node *root, int data)
                 printf("\nLEFT");
                 printf("\nBefore Rotations : ");
                 inOrder(root);
-                root = rightRotate(root);
+                return rightRotate(root);
             }
             else
             {
                 printf("\nRIGHT");
                 printf("\nBefore Rotations : ");
                 inOrder(root);
-                root = rightRotate(root);
+                root->left = leftRotate(root->left);
+                return rightRotate(root);
             }
         }
     }
