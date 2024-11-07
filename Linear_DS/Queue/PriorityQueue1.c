@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
 
 #define SIZE 100 // Maximum size of the priority queue
 
@@ -23,13 +23,13 @@ int isFull()
 // Enqueue operation to insert an element with a priority into the queue
 void enQueue(int data, int priority)
 {
-    if (isFull())
+    if (rear == SIZE - 1)
     {
         printf("Queue is full!\n");
         return;
     }
 
-    if (isEmpty())
+    if (front == -1)
     {
         // If queue is empty, set both front and rear to 0
         front = 0;
@@ -44,7 +44,7 @@ void enQueue(int data, int priority)
 // Dequeue operation to remove the element with the highest priority
 void deQueue()
 {
-    if (isEmpty())
+    if (front == -1)
     {
         printf("Queue is empty!\n");
         return;
@@ -80,9 +80,9 @@ void deQueue()
 }
 
 // Function to print the queue in priority order
-void printQueuePriorityWise()
+void display()
 {
-    if (isEmpty())
+    if (front == -1)
     {
         printf("Queue is empty!\n");
         return;
@@ -127,18 +127,53 @@ void printQueuePriorityWise()
 
 int main()
 {
-    enQueue(10, 1);
-    enQueue(20, 3);
-    enQueue(30, 2);
+    int choice, data, priority;
+    while (1)
+    {
+        printf("\n==============================================");
+        printf("\n            Priority Queue Operation");
+        printf("\n==============================================");
+        printf("\n1. enQueue");
+        printf("\n2. deQueue");
+        printf("\n3. display");
+        printf("\n4. Exit");
+        printf("\n==============================================");
 
-    printf("Before dequeue:\n");
-    printQueuePriorityWise();
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
 
-    printf("\nDequeue the element with the highest priority:\n");
-    deQueue();
+        switch (choice)
+        {
+        case 1:
+            printf("Enter data: ");
+            scanf("%d", &data);
+            printf("Enter priority: ");
+            scanf("%d", &priority);
+            enQueue(data, priority);
+            break;
 
-    printf("\nAfter dequeue:\n");
-    printQueuePriorityWise();
+        case 2:
+            printf("Before dequeue:\n");
+            display();
+
+            printf("\nDequeue the element with the highest priority:\n");
+            deQueue();
+
+            printf("\nAfter dequeue:\n");
+            display();
+            break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            exit(0);
+
+        default:
+            printf("Invalid choice. Please choose a valid option.\n");
+        }
+    }
 
     return 0;
 }
