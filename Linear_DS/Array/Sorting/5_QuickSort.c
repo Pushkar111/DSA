@@ -1,61 +1,62 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void swap(int arr[], int i, int j)
-{
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-
-int partition(int arr[], int min, int max)
-{
-    int pivot = arr[max];
-    int i = min - 1;
-    for (int j = min; j <= max - 1; j++)
-    {
-        if (arr[j] <= pivot)
-        {
-            i++;
-            swap(arr, i, j);
-        }
-    }
-    swap(arr, i + 1, max);
-
-    return i + 1;
-}
-
-void QuickSort(int arr[], int min, int max)
-{
-    if (min < max)
-    {
-        int pi = partition(arr, min, max);
-        QuickSort(arr, min, pi - 1);
-        QuickSort(arr, pi + 1, max);
-    }
-}
-
-void dispData(int arr[], int SIZE)
+void dispData(int a[], int SIZE)
 {
     for (int i = 0; i < SIZE; i++)
     {
-        printf("%d\t", arr[i]);
+        printf("%d\t", a[i]);
+    }
+}
+
+int partition(int a[], int min, int max)
+{
+    int pivot = a[max];
+    int i = min - 1, j;
+
+    for (j = min; j < max; j++)
+    {
+        if (a[j] <= pivot)
+        {
+            i++;
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+    i++;
+    int temp = a[i];
+    a[i] = a[max];
+    a[max] = temp;
+
+    return i;
+}
+
+void quickSort(int a[], int min, int max)
+{
+    if (min < max)
+    {
+        int pivotIndex = partition(a, min, max);
+        quickSort(a, min, pivotIndex - 1);
+        quickSort(a, pivotIndex + 1, max);
     }
 }
 
 int main()
 {
-    int arr[] = {11, 122, 31, 4, 115, 600, 700, 85, 91, 100};
-    int SIZE = sizeof(arr) / sizeof(int);
-    int min = 0, mid, max = SIZE - 1;
+    int a[] = {5, 4, 3, 2, 1};
+    int SIZE = sizeof(a) / sizeof(a[0]);
+    int min = 0, max = SIZE - 1;
 
-    printf("\nUnsorted array : ");
-    printf("\n--------------------------------------------------------------------------------------\n");
-    dispData(arr, SIZE);
+    printf("\nUnSorted Array\n");
+    printf("-------------------------------------------------------------\n");
+    dispData(a, SIZE);
 
-    // Quick Sort
-    QuickSort(arr, min, max);
-    printf("\n\nsorted array : ");
-    printf("\n-------------------------------------------------------------------------------------\n");
-    dispData(arr, SIZE);
+    quickSort(a, min, max);
+
+    printf("\nSorted Array\n");
+    printf("-------------------------------------------------------------\n");
+    dispData(a, SIZE);
+
     return 0;
 }
