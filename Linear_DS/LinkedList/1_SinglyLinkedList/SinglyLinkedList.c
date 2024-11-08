@@ -10,7 +10,7 @@ struct node
 struct node *head = NULL;
 struct node *last = NULL;
 struct node *dup = NULL;
-            
+
 // Case 1
 void addNode(int data)
 {
@@ -118,15 +118,25 @@ struct node *InsertAtIndex(int index, int data)
 struct node *insertAtEnd(int data)
 {
     struct node *ptr = (struct node *)malloc(sizeof(struct node));
-    struct node *p = head;
 
-    while (p->next != NULL)
+    if (head == NULL)
     {
-        p = p->next;
+        head = (struct node *)malloc(sizeof(struct node));
+        head->data = data;
+        head->next = NULL;
+        last = head;
     }
-    ptr->data = data;
-    p->next = ptr;
-    ptr->next = NULL;
+    else
+    {
+        struct node *p = head;
+        while (p->next != NULL)
+        {
+            p = p->next;
+        }
+        ptr->data = data;
+        p->next = ptr;
+        ptr->next = NULL;
+    }
 
     return head;
 }
