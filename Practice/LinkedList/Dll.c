@@ -59,12 +59,16 @@ struct node *InsertAtOrder(struct node *head, int data)
     struct node *ptr = (struct node *)malloc(sizeof(struct node));
     ptr->data = data;
     ptr->next = NULL;
+    ptr->prev = NULL;
 
     // Case 1: If the list is empty or the new node needs to be inserted at the head
     if (head == NULL || head->data >= data)
     {
         ptr->next = head;
-        head->prev = ptr;
+        if (head != NULL)
+        {
+            head->prev = ptr;
+        }
         head = ptr;
         return head;
     }
