@@ -129,6 +129,34 @@ struct node *delete(struct node *head, int source)
     return head;
 }
 
+struct node *deleteAtEnd(struct node *head)
+{
+    if (head == NULL)
+    {
+        printf("List is empty. Cannot delete from an empty list.\n");
+        return head;
+    }
+
+    if (head->next == NULL)
+    {
+        free(head);
+        head = NULL;
+        return head;
+    }
+
+    struct node *p = head;
+    struct node *q = NULL;
+
+    while (p->next != NULL)
+    {
+        q = p;
+        p = p->next;
+    }
+    q->next = NULL;
+    free(p);
+    return head;
+}
+
 void display(struct node *head)
 {
     struct node *ptr = head;
@@ -155,8 +183,9 @@ int main()
         printf("\n2. InsertAtEnd");
         printf("\n3. InsertAtOrder");
         printf("\n4. Delete");
-        printf("\n5. Display");
-        printf("\n6. Exit");
+        printf("\n5. DeleteAtEnd");
+        printf("\n6. Display");
+        printf("\n7. Exit");
         printf("\n=========================================");
 
         printf("\nEnter the choice : ");
@@ -189,10 +218,14 @@ int main()
             break;
 
         case 5:
-            display(head);
+            head = deleteAtEnd(head);
             break;
 
         case 6:
+            display(head);
+            break;
+
+        case 7:
             exit(0);
 
         default:
