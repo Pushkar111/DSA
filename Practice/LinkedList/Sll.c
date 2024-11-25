@@ -79,6 +79,38 @@ struct node *InsertAtOrder(struct node *head, int data)
     return head;
 }
 
+struct node *InsertAtIndex(struct node *head, int index, int data)
+{
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct node *p = head;
+    int i = 0;
+
+    if (index == 0)
+    {
+        ptr->data = data;
+        ptr->next = head;
+        head = ptr;
+
+        return head;
+    }
+
+    while (i != index - 1)
+    {
+        p = p->next;
+        i++;
+        if (p == NULL)
+        {
+            printf("Index out of bounds\n");
+            return head;
+        }
+    }
+    ptr->data = data;
+    ptr->next = p->next;
+    p->next = ptr;
+
+    return head;
+}
+
 struct node *delete(struct node *head, int source)
 {
     if (head == NULL)
@@ -171,7 +203,7 @@ void display(struct node *head)
 int main()
 {
     struct node *head = NULL;
-    int data, source;
+    int data, source, index;
     int choice;
 
     while (1)
@@ -182,10 +214,11 @@ int main()
         printf("\n1. InsertAtHead");
         printf("\n2. InsertAtEnd");
         printf("\n3. InsertAtOrder");
-        printf("\n4. Delete");
-        printf("\n5. DeleteAtEnd");
-        printf("\n6. Display");
-        printf("\n7. Exit");
+        printf("\n4. InsertAtIndex");
+        printf("\n5. Delete");
+        printf("\n6. DeleteAtEnd");
+        printf("\n7. Display");
+        printf("\n8. Exit");
         printf("\n=========================================");
 
         printf("\nEnter the choice : ");
@@ -212,20 +245,28 @@ int main()
             break;
 
         case 4:
+            printf("Enter the index : ");
+            scanf("%d", &index);
+            printf("Enter the data : ");
+            scanf("%d", &data);
+            head = InsertAtIndex(head, index, data);
+            break;
+
+        case 5:
             printf("Enter the source : ");
             scanf("%d", &source);
             head = delete (head, source);
             break;
 
-        case 5:
+        case 6:
             head = deleteAtEnd(head);
             break;
 
-        case 6:
+        case 7:
             display(head);
             break;
 
-        case 7:
+        case 8:
             exit(0);
 
         default:
