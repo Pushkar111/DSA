@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video id="home_video" autoplay muted loop data-autoplay preload="auto" width="250">
+            <source type="video/mp4"
+                src="https://chaipredict.com/assets/global/Stocksy_txp43a7130eKul300_h264_1080p_5518201.mp4">
+            Sorry, your browser doesn't support embedded videos.
+        </video>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('home_video');
+            if (video && video.play) {
+                video.setAttribute('playsinline', '');
+            }
+        });
+    </script>
+</body>
+
+</html>
